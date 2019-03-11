@@ -13,9 +13,9 @@ let europianCountries = ["Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", 
 @Component({
     selector: "hs-news",
     moduleId: module.id,
-    templateUrl: "./news.component.html"
+    templateUrl: "./item-new.component.html"
 })
-export class NewsComponent implements OnInit {
+export class ItemNewComponent implements OnInit {
 
     constructor() {
         this.countries = [];

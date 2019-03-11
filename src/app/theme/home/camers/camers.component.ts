@@ -11,11 +11,11 @@ let europianCountries = ["Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", 
     "Slovenia", "Spain", "Sweden", "United Kingdom"];
 
 @Component({
-    selector: "hs-news",
+    selector: "hs-camers",
     moduleId: module.id,
-    templateUrl: "./news.component.html"
+    templateUrl: "./camers.component.html"
 })
-export class NewsComponent implements OnInit {
+export class CamersComponent implements OnInit {
 
     constructor() {
         this.countries = [];
