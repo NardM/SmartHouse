@@ -4,6 +4,10 @@ import { NativeScriptUISideDrawerModule } from "nativescript-ui-sidedrawer/angul
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { LoginComponent } from "~/app/theme/login/login.component";
+import { NativeScriptFormsModule } from "nativescript-angular";
+import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { UserService } from "~/app/service/user.service";
 
 @NgModule({
     bootstrap: [
@@ -12,13 +16,19 @@ import { AppComponent } from "./app.component";
     imports: [
         AppRoutingModule,
         NativeScriptModule,
-        NativeScriptUISideDrawerModule
+        NativeScriptUISideDrawerModule,
+        NativeScriptFormsModule,
+        NativeScriptHttpClientModule
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        LoginComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA
+    ],
+    providers: [
+        UserService
     ]
 })
 export class AppModule { }
