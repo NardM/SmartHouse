@@ -4,6 +4,8 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { HomeRoutingModule } from "./home-routing.module";
 import { HomeComponent } from "./home.component";
 import { NewsComponent } from "~/app/theme/home/news/news.component";
+import { ServiceComponent } from "~/app/theme/home/service/service.component";
+import { ItemServiceComponent } from "~/app/theme/home/service/item/item-service.component";
 
 @NgModule({
     imports: [
@@ -12,7 +14,9 @@ import { NewsComponent } from "~/app/theme/home/news/news.component";
     ],
     declarations: [
         HomeComponent,
-        NewsComponent
+        NewsComponent,
+        ServiceComponent,
+        ItemServiceComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

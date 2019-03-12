@@ -5,28 +5,17 @@ class Country {
     constructor(public name: string) { }
 }
 
-let europianCountries = ["Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech Republic",
-    "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland", "Italy",
-    "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovakia",
-    "Slovenia", "Spain", "Sweden", "United Kingdom"];
-
 @Component({
-    selector: "hs-news",
+    selector: "hs-item-new",
     moduleId: module.id,
     templateUrl: "./item-new.component.html"
 })
 export class ItemNewComponent implements OnInit {
 
     constructor() {
-        this.countries = [];
-
-        for (let i = 0; i < europianCountries.length; i++) {
-            this.countries.push(new Country(europianCountries[i]));
-        }
     }
 
     ngOnInit(): void {
-        // Init your component properties here.
     }
 
     onDrawerButtonTap(): void {
