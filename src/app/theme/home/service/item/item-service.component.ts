@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { RadSideDrawer } from "nativescript-ui-sidedrawer";
-import * as app from "tns-core-modules/application";
 import { ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs";
+import { RouterExtensions } from "nativescript-angular";
 
 @Component({
     selector: "hs-item-service",
@@ -13,16 +12,27 @@ export class ItemServiceComponent implements OnInit {
 
     private id: number;
     private subscription: Subscription;
+    private defaultItems = [
+        {title: 'Вызвать сантехника', id: 1},
+        {title: 'Вызвать электрика', id: 2},
+        {title: 'Вызвать плотника', id: 3},
+        {title: 'Предложить запись', id: 4}
+    ];
 
-    constructor(private activateRoute: ActivatedRoute) {
-        this.subscription = activateRoute.params.subscribe(params=>this.id=params['id']);
+    public currentItem: {title: string, id: number} = null;
+
+    constructor(private activateRoute: ActivatedRoute,
+                private routerExtensions: RouterExtensions) {
+        debugger;
+        this.subscription = activateRoute.params.subscribe((params: any) => this.id = params['id']);
+        this.currentItem = this.defaultItems.filter((item: any) => item.id === this.id)[0];
     }
 
     ngOnInit(): void {
     }
 
-    onDrawerButtonTap(): void {
-        const sideDrawer = <RadSideDrawer>app.getRootView();
-        sideDrawer.showDrawer();
+
+    goBack(): void {
+        this.routerExtensions.back();
     }
 }

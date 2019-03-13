@@ -1,9 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { RadSideDrawer } from "nativescript-ui-sidedrawer";
-import * as app from "tns-core-modules/application";
 import { Button } from "tns-core-modules/ui/button";
 import { EventData } from "tns-core-modules/data/observable";
-import { Router } from "@angular/router";
+import { RouterExtensions } from "nativescript-angular";
 class Country {
     constructor(public name: string) { }
 }
@@ -23,20 +21,16 @@ export class ServiceComponent implements OnInit {
         {title: 'Предложить запись', id: 4}
         ];
 
-    constructor(private router: Router) {
+    constructor(private routerExtensions: RouterExtensions) {
     }
 
     ngOnInit(): void {
         // Init your component properties here.
     }
 
-    onDrawerButtonTap(): void {
-        const sideDrawer = <RadSideDrawer>app.getRootView();
-        sideDrawer.showDrawer();
-    }
 
     onTap(args: EventData) {
         const button = <Button>args.object;
-        this.router.navigate(['item', 1])
+     //   this.routerExtensions.navigate(['item']);
     }
 }

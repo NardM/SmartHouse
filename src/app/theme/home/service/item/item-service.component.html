@@ -1,9 +1,15 @@
-<ActionBar android:title="Title">
-    <ActionItem text="left item" ios.position="left"></ActionItem>
-    <ActionItem text="Item" ios.position="right" android.position="popup"></ActionItem>
-    <ActionItem>
-        <Label class="m-5" text="Custom item" color="#8C489F"></Label>
-    </ActionItem>
-    <ActionItem ios.systemIcon="12" android.systemIcon="ic_menu_search"></ActionItem>
-    <NavigationButton icon="res://ic_arrow_back_black_24dp" (tap)="goBack()"></NavigationButton>
+<ActionBar class="action-bar" >
+    <!--
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="goBack($event)"></NavigationButton>
+
+    <!--
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+
+    <Label class="action-bar-title" [text]="currentItem.title"></Label>
 </ActionBar>

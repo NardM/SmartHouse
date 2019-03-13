@@ -1,14 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
+import { ObservableArray } from "tns-core-modules/data/observable-array";
 class Country {
     constructor(public name: string) { }
 }
-
-let europianCountries = ["Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", "Czech Republic",
-    "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Ireland", "Italy",
-    "Latvia", "Lithuania", "Luxembourg", "Malta", "Netherlands", "Poland", "Portugal", "Romania", "Slovakia",
-    "Slovenia", "Spain", "Sweden", "United Kingdom"];
 
 @Component({
     selector: "hs-camers",
@@ -16,29 +12,45 @@ let europianCountries = ["Austria", "Belgium", "Bulgaria", "Croatia", "Cyprus", 
     templateUrl: "./camers.component.html"
 })
 export class CamersComponent implements OnInit {
+    private _dataItems: ObservableArray<any>;
+    private _templateSelector: (item: any, index: number, items: any) => string;
 
     constructor() {
-        this.countries = [];
+    }
 
-        for (let i = 0; i < europianCountries.length; i++) {
-            this.countries.push(new Country(europianCountries[i]));
+    get dataItems(): ObservableArray<any> {
+        return this._dataItems;
+    }
+
+    ngOnInit() {
+        this._dataItems = new ObservableArray();
+        this._templateSelector = this.templateSelectorFunction;
+        let itemsCount = 50;
+        for (let i = 0; i <= itemsCount; i++) {
+            this._dataItems.push({name: 1, type: 2, description: 23123});
         }
     }
 
-    ngOnInit(): void {
-        // Init your component properties here.
+    private getType(index: number, end: number): string {
+        let lastDigit = index % 10;
+        let type = index === 0 ? "start" : index === end ? "end" : undefined;
+        if (!type) {
+            type = lastDigit === 0 ? "default" : lastDigit <= 3 ? "red" : lastDigit <= 6 ? "blue" : lastDigit <= 9 ? "green" : "default";
+        }
+
+        return type;
     }
 
-    onDrawerButtonTap(): void {
-        const sideDrawer = <RadSideDrawer>app.getRootView();
-        sideDrawer.showDrawer();
+    get templateSelector(): (item: any, index: number, items: any) => string {
+        return this._templateSelector;
     }
 
-    public countries: Array<Country>;
-
-
-
-    public onItemTap(args) {
-        console.log("Item Tapped at cell index: " + args.index);
+    set templateSelector(value: (item: any, index: number, items: any) => string) {
+        this._templateSelector = value;
     }
+
+    public templateSelectorFunction = (item: any, index: number, items: any) => {
+        return item.type;
+    }
+
 }

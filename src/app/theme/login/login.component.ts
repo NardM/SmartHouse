@@ -73,7 +73,7 @@ export class LoginComponent  {
     }
 
     forgotPassword() {
-        prompt({
+      /*  prompt({
             title: "Forgot Password",
             message: "Enter the email address you used to register for APP NAME to reset your password.",
             inputType: "email",
@@ -89,7 +89,7 @@ export class LoginComponent  {
                     this.alert("Unfortunately, an error occurred resetting your password.");
                 });
             }
-        });
+        });*/
     }
 
     focusPassword() {

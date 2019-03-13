@@ -12,7 +12,7 @@
     <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left">
     </ActionItem>
-    <Label class="action-bar-title" text="Home"></Label>
+    <Label class="action-bar-title" text="Мобильный дом"></Label>
 </ActionBar>
 
 <GridLayout class="page page-content">
@@ -21,7 +21,7 @@
             <hs-news></hs-news>
         </StackLayout>
         <StackLayout *tabItem="{title: 'Камеры'}">
-            <Label text="Камеры"></Label>
+            <hs-camers></hs-camers>
         </StackLayout>
         <StackLayout *tabItem="{title: 'Сервисы'}">
             <hs-service></hs-service>
