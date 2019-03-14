@@ -3,6 +3,7 @@ import { Button } from "tns-core-modules/ui/button";
 import { EventData } from "tns-core-modules/data/observable";
 import { RouterExtensions } from "nativescript-angular";
 import { CurrentService, ServiceService } from "~/app/theme/home/service/service.service";
+import { ServiceType } from "~/app/theme/home/service/shared/service.model";
 class Country {
     constructor(public name: string) { }
 }
@@ -35,7 +36,3 @@ export class ServiceComponent implements OnInit {
     }
 }
 
-export enum ServiceType{
-    service,
-    message
-}

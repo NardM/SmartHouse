@@ -1,27 +1,24 @@
 import { Injectable } from '@angular/core';
-import { ServiceType } from "~/app/theme/home/service/service.component";
+import { CurrentService, ServiceModel } from "~/app/theme/home/service/shared/service.model";
 
 @Injectable()
 export class ServiceService {
 
-    currentService: CurrentService;
+    private _currentService: CurrentService;
 
     constructor() {
     }
 
     setCurrentService(currentService: CurrentService): void {
-        this.currentService = currentService;
+        this._currentService = currentService;
     }
 
     getCurrentService(): CurrentService {
-        return this.currentService;
+        return this._currentService;
     }
 
+    builder(): ServiceModel {
+        return new ServiceModel(this._currentService.type);
+    }
 }
 
-export class CurrentService {
-    title: string;
-    id: number;
-    submit: string;
-    type: ServiceType;
-}

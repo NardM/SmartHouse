@@ -3,10 +3,10 @@ import { ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs";
 import { RouterExtensions } from "nativescript-angular";
 import { CurrentService, ServiceService } from "~/app/theme/home/service/service.service";
-import {ImageSource, fromFile, fromResource, fromBase64} from "tns-core-modules/image-source";
-import {Folder, path, knownFolders} from "tns-core-modules/file-system";
+import { ImageSource, fromFile, fromResource, fromBase64 } from "tns-core-modules/image-source";
+import { Folder, path, knownFolders } from "tns-core-modules/file-system";
 import * as imagepicker from "nativescript-imagepicker";
-
+import { AddStore } from "~/app/theme/home/service/shared/service.model";
 
 @Component({
     selector: "hs-item-service",
@@ -16,8 +16,8 @@ import * as imagepicker from "nativescript-imagepicker";
 export class ItemServiceComponent implements OnInit {
 
     currentItem: CurrentService = null;
-    public store: AddStore;
-    public metadata: any;
+    store: AddStore;
+    metadata: any;
     imageAssets = [];
     imageSrc: any;
     isSingleMode: boolean = true;
@@ -32,44 +32,37 @@ export class ItemServiceComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.store = new AddStore("test name" , "test\nsdfgfsdf");
-        this.metadata = require("./item.service.json");
+        this.store = new AddStore("Укажите причину" , "Желаемое дата прибытие специалиста");
+        this.metadata = this.serviceService.builder();
     }
 
-    onUploadLocalImage(){
-        const folder: Folder = <Folder> knownFolders.currentApp();
-        const folderPath: string = path.join(folder.path);
-        const imageFromLocalFile: ImageSource = <ImageSource> fromFile(folderPath);
-    }
-
-    onSubmit(){
+    onSubmit() {
 
     }
-
 
     goBack(): void {
         this.routerExtensions.back();
     }
-    public onSelectMultipleTap() {
+    onSelectMultipleTap() {
         this.isSingleMode = false;
 
-        let context = imagepicker.create({
+        const context = imagepicker.create({
             mode: "multiple"
         });
         this.startSelection(context);
     }
 
-    public onSelectSingleTap() {
+    onSelectSingleTap() {
         this.isSingleMode = true;
 
-        let context = imagepicker.create({
+        const context = imagepicker.create({
             mode: "single"
         });
         this.startSelection(context);
     }
 
     private startSelection(context) {
-        let that = this;
+        const that = this;
 
         context
             .authorize()
@@ -83,25 +76,17 @@ export class ItemServiceComponent implements OnInit {
                 that.imageSrc = that.isSingleMode && selection.length > 0 ? selection[0] : null;
 
                 // set the images to be loaded from the assets with optimal sizes (optimize memory usage)
-                selection.forEach(function (element) {
+                selection.forEach(function(element) {
                     element.options.width = that.isSingleMode ? that.previewSize : that.thumbSize;
                     element.options.height = that.isSingleMode ? that.previewSize : that.thumbSize;
                 });
 
                 that.imageAssets = selection;
                 that.imageUpload = true;
-            }).catch(function (e) {
+            }).catch(function(e) {
             console.log(e);
         });
     }
 }
 
-export class AddStore {
-    public name: string;
-    public description: string;
 
-    constructor(name: string, description: string,) {
-        this.name = name;
-        this.description = description;
-    }
-}

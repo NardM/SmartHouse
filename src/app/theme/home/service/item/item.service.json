@@ -5,19 +5,17 @@
   "propertyAnnotations":
   [
     {
-      "name": "name",
+      "name": "text",
       "displayName": "Укажите причину",
       "index": 1,
       "editor": "MultilineText"
 
     },
     {
-      "name": "description",
+      "name": "date",
       "displayName": "Желаемое дата прибытие специалиста",
       "index": 2,
       "editor": "Date"
-
     }
-
   ]
 }
