@@ -3,7 +3,7 @@
     Use the NavigationButton as a side-drawer button in Android
     because ActionItems are shown on the right side of the ActionBar
     -->
-    <NavigationButton text="Go Back" android.systemIcon="ic_menu_back" (tap)="goBack($event)"></NavigationButton>
+    <NavigationButton  android.systemIcon="ic_menu_back" (tap)="goBack($event)"></NavigationButton>
 
     <!--
     Use the ActionItem for IOS with position set to left. Using the
@@ -13,3 +13,17 @@
 
     <Label class="action-bar-title" [text]="currentItem.title"></Label>
 </ActionBar>
+<StackLayout class="m-15" sdkExampleTitle sdkToggleNavButton>
+    <RadDataForm tkExampleTitle
+                 tkToggleNavButton
+                 [metadata]="metadata"
+                 [source]="store"></RadDataForm>
+
+    <Button *ngIf="!imageUpload" text="Загрузить изображение" (tap)="onSelectSingleTap()"></Button>
+
+    <Image [src]="imageSrc" *ngIf="isSingleMode && imageUpload" [width]="previewSize" [height]="previewSize" stretch="aspectFit"></Image>
+
+
+    <Button [text]="currentItem.submit" (tap)="onSubmit()"></Button>
+
+</StackLayout>

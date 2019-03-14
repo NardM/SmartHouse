@@ -1,0 +1,23 @@
+{
+  "isReadOnly": false,
+  "commitMode": "immediate",
+  "validationMode": "immediate",
+  "propertyAnnotations":
+  [
+    {
+      "name": "name",
+      "displayName": "Укажите причину",
+      "index": 1,
+      "editor": "MultilineText"
+
+    },
+    {
+      "name": "description",
+      "displayName": "Желаемое дата прибытие специалиста",
+      "index": 2,
+      "editor": "Date"
+
+    }
+
+  ]
+}

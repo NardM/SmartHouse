@@ -8,13 +8,16 @@ import { ServiceComponent } from "~/app/theme/home/service/service.component";
 import { ItemServiceComponent } from "~/app/theme/home/service/item/item-service.component";
 import { CamersComponent } from "~/app/theme/home/camers/camers.component";
 import { ItemCameraComponent } from "~/app/theme/home/camers/item/item-camera.component";
-import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
+import { ServiceService } from "~/app/theme/home/service/service.service";
+import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
+
+
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
         HomeRoutingModule,
-        NativeScriptUIListViewModule,
+        NativeScriptUIDataFormModule
     ],
     declarations: [
         HomeComponent,
@@ -23,6 +26,9 @@ import { NativeScriptUIListViewModule } from "nativescript-ui-listview/angular";
         ItemServiceComponent,
         CamersComponent,
         ItemCameraComponent
+    ],
+    providers: [
+        ServiceService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

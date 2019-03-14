@@ -7,7 +7,7 @@ import { ItemServiceComponent } from "~/app/theme/home/service/item/item-service
 
 const routes: Routes = [
     { path: "", component: HomeComponent },
-    { path: "item/:id", component: ItemServiceComponent }
+    { path: "service", component: ItemServiceComponent }
 ];
 
 @NgModule({

@@ -26,7 +26,7 @@
     "@angular/router": "~7.2.0",
     "kinvey-nativescript-sdk": "^3.12.4",
     "nativescript-angular": "~7.2.1",
-    "nativescript-pro-ui": "^3.4.1",
+    "nativescript-imagepicker": "^6.1.2",
     "nativescript-theme-core": "~1.0.4",
     "nativescript-ui-dataform": "^3.10.1",
     "nativescript-ui-listview": "^6.0.0",
