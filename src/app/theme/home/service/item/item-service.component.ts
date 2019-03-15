@@ -1,12 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { Subscription } from "rxjs";
 import { RouterExtensions } from "nativescript-angular";
-import { CurrentService, ServiceService } from "~/app/theme/home/service/service.service";
-import { ImageSource, fromFile, fromResource, fromBase64 } from "tns-core-modules/image-source";
-import { Folder, path, knownFolders } from "tns-core-modules/file-system";
 import * as imagepicker from "nativescript-imagepicker";
-import { AddStore } from "~/app/theme/home/service/shared/service.model";
+import { MessageStore, ServiceStore } from "../shared/serviceStore";
+import { ServiceService } from "../shared/service.service";
+import { CurrentService } from "../shared/currentService";
+import { ServiceModel } from "~/app/theme/home/service/shared/service.model";
 
 @Component({
     selector: "hs-item-service",
@@ -16,8 +15,8 @@ import { AddStore } from "~/app/theme/home/service/shared/service.model";
 export class ItemServiceComponent implements OnInit {
 
     currentItem: CurrentService = null;
-    store: AddStore;
-    metadata: any;
+    store: ServiceStore | MessageStore;
+    metadata: ServiceModel;
     imageAssets = [];
     imageSrc: any;
     isSingleMode: boolean = true;
@@ -32,12 +31,12 @@ export class ItemServiceComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.store = new AddStore("Укажите причину" , "Желаемое дата прибытие специалиста");
-        this.metadata = this.serviceService.builder();
+        const data: ServiceModel = this.serviceService.getServiceModel();
+        this.store = data.store;
+        this.metadata = data;
     }
 
     onSubmit() {
-
     }
 
     goBack(): void {
@@ -88,5 +87,3 @@ export class ItemServiceComponent implements OnInit {
         });
     }
 }
-
-

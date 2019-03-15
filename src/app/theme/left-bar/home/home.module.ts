@@ -8,7 +8,7 @@ import { ServiceComponent } from "~/app/theme/home/service/service.component";
 import { ItemServiceComponent } from "~/app/theme/home/service/item/item-service.component";
 import { CamersComponent } from "~/app/theme/home/camers/camers.component";
 import { ItemCameraComponent } from "~/app/theme/home/camers/item/item-camera.component";
-import { ServiceService } from "~/app/theme/home/service/service.service";
+import { ServiceService } from "~/app/theme/home/service/shared/service.service";
 import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
 
 

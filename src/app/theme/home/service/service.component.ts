@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { Button } from "tns-core-modules/ui/button";
-import { EventData } from "tns-core-modules/data/observable";
 import { RouterExtensions } from "nativescript-angular";
-import { CurrentService, ServiceService } from "~/app/theme/home/service/service.service";
-import { ServiceType } from "~/app/theme/home/service/shared/service.model";
+import { ServiceType } from "./shared/service.model";
+import { ServiceService } from "./shared/service.service";
+import { CurrentService } from "./shared/currentService";
+
 class Country {
     constructor(public name: string) { }
 }

@@ -1,3 +1,4 @@
+import { MessageStore, ServiceStore } from "~/app/theme/home/service/shared/serviceStore";
 
 export interface IPropertyAnnotation {
     name: string;
@@ -12,48 +13,44 @@ export interface IService {
     validationMode: string;
     propertyAnnotations: Array<IPropertyAnnotation>;
 }
-export class CurrentService {
-    title: string;
-    id: number;
-    submit: string;
-    type: ServiceType;
-}
-export class AddStore {
-    name: string;
-    description: string;
-
-    constructor(name: string, description: string) {
-        this.name = name;
-        this.description = description;
-    }
-}
 export class ServiceModel implements IService {
     commitMode: string;
     isReadOnly: boolean;
     propertyAnnotations: Array<IPropertyAnnotation>;
     validationMode: string;
-    multilineText: IPropertyAnnotation = {
+    multilineTextService: IPropertyAnnotation = {
         name: "text",
         displayName: "Укажите причину",
         index: 1,
         editor: "MultilineText"
     };
 
+    multilineTextMessage: IPropertyAnnotation = {
+        name: "text",
+        displayName: "Введите текст",
+        index: 1,
+        editor: "MultilineText"
+    };
+
     date: IPropertyAnnotation = {
-        name: "description",
+        name: "date",
         displayName: "Желаемое дата прибытие специалиста",
         index: 2,
-        editor: "Date"
+        editor: "DatePicker"
     };
+
+    store: ServiceStore | MessageStore;
 
     constructor(serviceTypeEnum: ServiceType) {
         this.default();
         switch (serviceTypeEnum) {
             case ServiceType.service:
-                this.propertyAnnotations = [this.multilineText, this.date];
+                this.propertyAnnotations = [this.multilineTextService, this.date];
+                this.store = new ServiceStore("", new Date().getTime());
                 break;
             case ServiceType.message:
-                this.propertyAnnotations = [this.multilineText];
+                this.propertyAnnotations = [this.multilineTextMessage];
+                this.store = new MessageStore("");
                 break;
         }
     }
