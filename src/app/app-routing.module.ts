@@ -8,7 +8,7 @@ const routes: Routes = [
     { path: "meter-reading", loadChildren: "~/app/theme/left-bar/meter-reading/meter-reading.module#MeterReadingModule" },
     { path: "history-payment", loadChildren: "~/app/theme/left-bar/history-payment/history-payment.module#HistoryPaymentModule" },
     { path: "feedback", loadChildren: "~/app/theme/left-bar/feedback/feedback.module#FeedbackModule" },
-    { path: "about-uk", loadChildren: "~/app/theme/left-bar/about-uk/about-uk.module#AboutUKModule" },
+    { path: "about-uk", loadChildren: "~/app/theme/left-bar/about-UK/about-UK.module#AboutUKModule" },
     { path: "about-app", loadChildren: "~/app/theme/left-bar/about-app/about-app.module#AboutAppModule" },
     { path: "settings", redirectTo: "login" }
 ];
