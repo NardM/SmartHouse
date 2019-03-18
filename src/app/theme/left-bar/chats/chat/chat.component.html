@@ -12,7 +12,7 @@
     </ListView>
 
     <StackLayout #chatbox height="10%">
-        <GridLayout columns="*,auto" style="padding: 10">
+        <GridLayout columns="*,auto" style="padding: 10%">
             <TextField #textfield class="chatTextField" row="0" col="0" [(ngModel)]="message"></TextField>
             <Button #btn class="chatBtn" row="0" col="1" text="send" (tap)=chat(message)></Button>
         </GridLayout>

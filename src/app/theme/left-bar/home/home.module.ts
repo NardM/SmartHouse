@@ -10,8 +10,6 @@ import { CamersComponent } from "~/app/theme/home/camers/camers.component";
 import { ItemCameraComponent } from "~/app/theme/home/camers/item/item-camera.component";
 import { ServiceService } from "~/app/theme/home/service/shared/service.service";
 import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
-import { ChatsComponent } from "~/app/theme/home/chats/chats.component";
-import { FirebaseService } from "~/app/service/firebase.service";
 
 
 
@@ -28,11 +26,9 @@ import { FirebaseService } from "~/app/service/firebase.service";
         ItemServiceComponent,
         CamersComponent,
         ItemCameraComponent,
-        ChatsComponent
     ],
     providers: [
         ServiceService,
-        FirebaseService
     ],
     schemas: [
         NO_ERRORS_SCHEMA
