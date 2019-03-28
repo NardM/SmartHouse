@@ -10,6 +10,10 @@ import { CamersComponent } from "~/app/theme/home/camers/camers.component";
 import { ItemCameraComponent } from "~/app/theme/home/camers/item/item-camera.component";
 import { ServiceService } from "~/app/theme/home/service/shared/service.service";
 import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
+import { ChatsComponent } from "~/app/theme/home/chats/chats.component";
+import { ListContactsComponent } from "~/app/theme/home/chats/list-constacts/list-constacts.component";
+import { ListChatsComponent } from "~/app/theme/home/chats/list-chat/list-chat.component";
+import { ChatComponent } from "~/app/theme/home/chats/chat/chat.component";
 
 
 
@@ -26,6 +30,10 @@ import { NativeScriptUIDataFormModule } from "nativescript-ui-dataform/angular";
         ItemServiceComponent,
         CamersComponent,
         ItemCameraComponent,
+        ChatsComponent,
+        ListContactsComponent,
+        ListChatsComponent,
+        ChatComponent
     ],
     providers: [
         ServiceService,

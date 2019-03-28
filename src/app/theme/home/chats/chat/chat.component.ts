@@ -9,7 +9,7 @@ class Country {
 }
 
 @Component({
-    selector: "hs-chats",
+    selector: "hs-chat",
     moduleId: module.id,
     styleUrls: ["./chat.component.scss"],
     templateUrl: "./chat.component.html"

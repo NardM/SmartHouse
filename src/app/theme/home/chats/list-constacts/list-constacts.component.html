@@ -1,0 +1,13 @@
+<ListView [items]="constructionSites" (itemTap)="onConstructionSiteItemTap($event)" separatorColor="transparent">
+    <ng-template let-item="item">
+        <GridLayout rows="*, auto" columns="auto, *, auto">
+            <Image class="site-template-image thumb-with-background" stretch="aspectFill" [src]="item && item.getThumbnailUrl ? item.getThumbnailUrl() : null"></Image>
+
+            <StackLayout col="1" verticalAlignment="center">
+                <Label class="site-template-title" [text]="item ? item.name : 'no data'"></Label>
+                <Label class="site-template-description" [text]="item ? item.address : 'no data'"></Label>
+            </StackLayout>
+            <StackLayout margin="0,16,0,42" row="1" colSpan="2" backgroundColor="lightGray" height="1"></StackLayout>
+        </GridLayout>
+    </ng-template>
+</ListView>

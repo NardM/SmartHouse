@@ -1,0 +1,24 @@
+<GridLayout rows="auto,auto,*,auto" columns="auto">
+
+
+    <GridLayout  row="2" width="100%"
+                backgroundColor="white">
+            <hs-list-chats *ngIf="selectedTabview == 0"></hs-list-chats>
+            <hs-list-contacts *ngIf="selectedTabview == 1"></hs-list-contacts>
+    </GridLayout>
+
+    <GridLayout class="navBottom" height="50" width="100%" row="3" rows="auto"
+            columns="auto,auto,auto,auto">
+
+        <GridLayout [class]="selectedTab==0?'nav active':'nav'" (tap)="onChatTap()"
+                    rows="*,auto" cols="auto" col="0" row="0" width="50%">
+            <Label row="1" *ngIf="selectedTab==0" text="Чат" class="navText"></Label>
+        </GridLayout>
+
+        <GridLayout [class]="selectedTab==1?'nav active':'nav'" (tap)="onContactsTap()"
+                    rows="*,auto" cols="auto" col="1" row="0" width="50%">
+            <Label row="1" *ngIf="selectedTab == 1" text="Соседи" class="navText"></Label>
+        </GridLayout>
+
+    </GridLayout>
+</GridLayout>
