@@ -15,8 +15,6 @@ import { ListContactsComponent } from "~/app/theme/home/chats/list-constacts/lis
 import { ListChatsComponent } from "~/app/theme/home/chats/list-chat/list-chat.component";
 import { ChatComponent } from "~/app/theme/home/chats/chat/chat.component";
 
-
-
 @NgModule({
     imports: [
         NativeScriptCommonModule,

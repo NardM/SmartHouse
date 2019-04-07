@@ -18,7 +18,9 @@ export class LoginComponent  {
     @ViewChild("password") password: ElementRef;
     @ViewChild("confirmPassword") confirmPassword: ElementRef;
 
-    constructor(private page: Page, private userService: UserService, private routerExtensions: RouterExtensions) {
+    constructor(private page: Page,
+                private userService: UserService,
+                private routerExtensions: RouterExtensions) {
         this.page.actionBarHidden = true;
         this.user = new User();
         this.user.email = "user@nativescript.org";
@@ -73,23 +75,7 @@ export class LoginComponent  {
     }
 
     forgotPassword() {
-      /*  prompt({
-            title: "Forgot Password",
-            message: "Enter the email address you used to register for APP NAME to reset your password.",
-            inputType: "email",
-            defaultText: "",
-            okButtonText: "Ok",
-            cancelButtonText: "Cancel"
-        }).then((data) => {
-            if (data.result) {
-                this.userService.resetPassword(data.text.trim())
-                    .then(() => {
-                        this.alert("Your password was successfully reset. Please check your email for instructions on choosing a new password.");
-                    }).catch(() => {
-                    this.alert("Unfortunately, an error occurred resetting your password.");
-                });
-            }
-        });*/
+
     }
 
     focusPassword() {

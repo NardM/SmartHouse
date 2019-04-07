@@ -13,35 +13,60 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
     
         <ScrollView row="1">
             <StackLayout class="sidedrawer-content">
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/home')" (tap)="onNavItemTap('/home')">
+                <GridLayout columns="auto, *"
+                            class="sidedrawer-list-item"
+                            [class.selected]="isComponentSelected('/home')"
+                            (tap)="onNavItemTap('/home')">
                     <Label col="0" text="&#xf015;" class="fa"></Label>
                     <Label col="1" text="Home" class="p-r-10"></Label>
                 </GridLayout>
 
-
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/meter-reading')" (tap)="onNavItemTap('/meter-reading')">
+                <GridLayout columns="auto, *"
+                            class="sidedrawer-list-item"
+                            [class.selected]="isComponentSelected('/meter-reading')"
+                            (tap)="onNavItemTap('/meter-reading')">
                     <Label col="0" text="&#xf1ea;" class="fa"></Label>
                     <Label col="1" text="Отправить показание счетчиков" class="p-r-10"></Label>
                 </GridLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/history-payment')" (tap)="onNavItemTap('/history-payment')">
+                <GridLayout columns="auto, *"
+                            class="sidedrawer-list-item"
+                            [class.selected]="isComponentSelected('/login')"
+                            (tap)="onNavItemTap('/login')">
+                    <Label col="0" text="&#xf1ea;" class="fa"></Label>
+                    <Label col="1" text="Отправить показание счетчиков" class="p-r-10"></Label>
+                </GridLayout>
+
+                <GridLayout columns="auto, *"
+                            class="sidedrawer-list-item"
+                            [class.selected]="isComponentSelected('/history-payment')"
+                            (tap)="onNavItemTap('/history-payment')">
                     <Label col="0" text="&#xf1ea;" class="fa"></Label>
                     <Label col="1" text="История оплаты счетов" class="p-r-10"></Label>
                 </GridLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/feedback')" (tap)="onNavItemTap('/feedback')">
+                <GridLayout columns="auto, *"
+                            class="sidedrawer-list-item"
+                            [class.selected]="isComponentSelected('/feedback')"
+                            (tap)="onNavItemTap('/feedback')">
                     <Label col="0" text="&#xf1ea;" class="fa"></Label>
                     <Label col="1" text="Связаться с УК" class="p-r-10"></Label>
                 </GridLayout>
 
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/about-uk')" (tap)="onNavItemTap('/about-uk')">
+                <GridLayout columns="auto, *"
+                            class="sidedrawer-list-item"
+                            [class.selected]="isComponentSelected('/about-uk')"
+                            (tap)="onNavItemTap('/about-uk')">
                     <Label col="0" text="&#xf1ea;" class="fa"></Label>
                     <Label col="1" text="Информация о УК" class="p-r-10"></Label>
                 </GridLayout>
 
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/about-app')" (tap)="onNavItemTap('/about-app')">
+                <GridLayout columns="auto, *"
+                            class="sidedrawer-list-item"
+                            [class.selected]="isComponentSelected('/about-app')"
+                            (tap)="onNavItemTap('/about-app')">
                     <Label col="0" text="&#xf1ea;" class="fa"></Label>
                     <Label col="1" text="Информация о приложении" class="p-r-10"></Label>
                 </GridLayout>
@@ -49,7 +74,10 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
 
                 <StackLayout class="hr-light"></StackLayout>
 
-                <GridLayout columns="auto, *" class="sidedrawer-list-item" [class.selected]="isComponentSelected('/settings')" (tap)="onNavItemTap('/settings')">
+                <GridLayout columns="auto, *"
+                            class="sidedrawer-list-item"
+                            [class.selected]="isComponentSelected('/settings')"
+                            (tap)="onNavItemTap('/settings')">
                     <Label col="0" text="&#xf013;" class="fa"></Label>
                     <Label col="1" text="Settings" class="p-r-10"></Label>
                 </GridLayout>

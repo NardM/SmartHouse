@@ -19,11 +19,11 @@ export class ListContactsComponent implements OnInit, OnDestroy {
     statusChangeSubscr: Subscription;
 
     constructor(
-        private _constructionSitesService: ConstructionSiteService,
+        private _constructionSitesService: any,
         private _routerExtensions: RouterExtensions,
         private _page: Page,
         private _ngZone: NgZone,
-        private connectivityStatusService: ConnectivityStatusService
+        private connectivityStatusService: any
     ) {
         _page.on("navigatedTo", (args) => this.onNavigatedTo());
 
@@ -55,7 +55,7 @@ export class ListContactsComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         this._constructionSitesService.allItems.subscribe((allConstructionSites) => {
             this._ngZone.run(() => {
-                this.constructionSites = new ObservableArray<ConstructionSite>(allConstructionSites);
+                this.constructionSites = new ObservableArray<any>(allConstructionSites);
                 this.isLoading = false;
             });
         });

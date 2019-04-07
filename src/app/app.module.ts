@@ -6,10 +6,11 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { NativeScriptFormsModule } from "nativescript-angular";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
+import { LoginComponent } from "~/app/theme/login/login.component";
 
 @NgModule({
     bootstrap: [
-        AppComponent
+        AppComponent,
     ],
     imports: [
         AppRoutingModule,
@@ -19,7 +20,8 @@ import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
         NativeScriptHttpClientModule
     ],
     declarations: [
-        AppComponent
+        AppComponent,
+        LoginComponent
     ],
     schemas: [
         NO_ERRORS_SCHEMA

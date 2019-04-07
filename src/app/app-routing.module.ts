@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes } from "@angular/router";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
+import { LoginComponent } from "~/app/theme/login/login.component";
 
 const routes: Routes = [
     { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -10,7 +11,7 @@ const routes: Routes = [
     { path: "feedback", loadChildren: "~/app/theme/left-bar/feedback/feedback.module#FeedbackModule" },
     { path: "about-uk", loadChildren: "~/app/theme/left-bar/about-UK/about-UK.module#AboutUKModule" },
     { path: "about-app", loadChildren: "~/app/theme/left-bar/about-app/about-app.module#AboutAppModule" },
-    { path: "settings", redirectTo: "login" }
+    { path: "login", component: LoginComponent }
 ];
 
 @NgModule({
