@@ -12,7 +12,6 @@ export class ListChatsComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // Init your component properties here.
     }
 
 

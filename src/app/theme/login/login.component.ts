@@ -19,7 +19,6 @@ export class LoginComponent  {
     @ViewChild("confirmPassword") confirmPassword: ElementRef;
 
     constructor(private page: Page,
-                private userService: UserService,
                 private routerExtensions: RouterExtensions) {
         this.page.actionBarHidden = true;
         this.user = new User();
