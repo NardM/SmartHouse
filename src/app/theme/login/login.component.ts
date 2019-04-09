@@ -46,7 +46,7 @@ export class LoginComponent  {
     }
 
     login() {
-        this.userService.login(this.user)
+      /*  this.userService.login(this.user)
             .then(() => {
                 this.processing = false;
                 this.routerExtensions.navigate(["/home"], { clearHistory: true });
@@ -54,7 +54,7 @@ export class LoginComponent  {
             .catch(() => {
                 this.processing = false;
                 this.alert("Unfortunately we could not find your account.");
-            });
+            });*/
     }
 
     register() {
@@ -62,7 +62,7 @@ export class LoginComponent  {
             this.alert("Your passwords do not match.");
             return;
         }
-        this.userService.register(this.user)
+       /* this.userService.register(this.user)
             .then(() => {
                 this.processing = false;
                 this.alert("Your account was successfully created.");
@@ -71,7 +71,7 @@ export class LoginComponent  {
             .catch(() => {
                 this.processing = false;
                 this.alert("Unfortunately we were unable to create your account.");
-            });
+            });*/
     }
 
     forgotPassword() {
