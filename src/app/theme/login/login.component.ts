@@ -22,17 +22,24 @@ export class LoginComponent  {
                 private routerExtensions: RouterExtensions) {
         this.page.actionBarHidden = true;
         this.user = new User();
-        this.user.email = "user@nativescript.org";
-        this.user.password = "password";
+        this.user.phone = "+7";
     }
 
     toggleForm() {
         this.isLoggingIn = !this.isLoggingIn;
     }
 
+    checkPhone(): boolean {
+        if (!this.user.phone) {
+            return false;
+        }
+        const regexPhone = /^((\+7)+([0-9]){10})$/;
+        return !!this.user.phone.match(regexPhone);
+    }
+
     submit() {
-        if (!this.user.email || !this.user.password) {
-            this.alert("Please provide both an email address and password.");
+        if (!this.checkPhone) {
+            this.alert("Пожалуйста, введите корректный номер телефона");
             return;
         }
 
@@ -57,10 +64,7 @@ export class LoginComponent  {
     }
 
     register() {
-        if (this.user.password !== this.user.confirmPassword) {
-            this.alert("Your passwords do not match.");
-            return;
-        }
+
        /* this.userService.register(this.user)
             .then(() => {
                 this.processing = false;

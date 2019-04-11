@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "481464396001",
+    "firebase_url": "https://my-project11-1491933886533.firebaseio.com",
+    "project_id": "my-project11-1491933886533",
+    "storage_bucket": "my-project11-1491933886533.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481464396001:android:b70c9a1b244c4477",
+        "android_client_info": {
+          "package_name": "org.nativescript.SmartHouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "481464396001-qic9ian274rm7hdppji2vu0mf7sf46ti.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPWpfbtFiqXehQyPRIy7vGV8Qx_QcLCcU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "481464396001-qic9ian274rm7hdppji2vu0mf7sf46ti.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

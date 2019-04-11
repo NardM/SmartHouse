@@ -7,6 +7,7 @@ import { AppComponent } from "./app.component";
 import { NativeScriptFormsModule } from "nativescript-angular";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { LoginComponent } from "~/app/theme/login/login.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
     bootstrap: [
@@ -17,7 +18,8 @@ import { LoginComponent } from "~/app/theme/login/login.component";
         NativeScriptModule,
         NativeScriptUISideDrawerModule,
         NativeScriptFormsModule,
-        NativeScriptHttpClientModule
+        NativeScriptHttpClientModule,
+        HttpClientModule
     ],
     declarations: [
         AppComponent,
