@@ -1,1 +1,30 @@
+<ActionBar android:margin="0 0 0 -16" backgroundColor="#E6C24A">
+    <NavigationButton visibility="collapsed"></NavigationButton>
+    <GridLayout rows="*,auto" columns="auto,*,auto" padding="0 0 0 -10" height="100%" width="100%">
+        <Label class="action-item-left"></Label>
+        <Image colSpan="3" android:stretch="none" android:margin="0 0 -6 0" horizontalAlignment="center" src="~/assets/logo.png"></Image>
+        <Label col="2" text="Add" class="action-item-right" (tap)="onAddButtonTap()"></Label>
+        <StackLayout row="1" colSpan="3" orientation="horizontal" backgroundColor="#E6C24A" height="6" padding="-10">
+            <StackLayout *ngFor="let in of counter(25)" class="tilted-line"></StackLayout>
+        </StackLayout>
+    </GridLayout>
+</ActionBar>
 
+<GridLayout class="page page-content">
+    <ListView [items]="constructionSites" (itemTap)="onConstructionSiteItemTap($event)" separatorColor="transparent">
+        <ng-template let-item="item">
+            <GridLayout rows="*, auto" columns="auto, *, auto">
+                <Image class="site-template-image thumb-with-background" stretch="aspectFill" [src]="item && item.getThumbnailUrl ? item.getThumbnailUrl() : null"></Image>
+
+                <StackLayout col="1" verticalAlignment="center">
+                    <Label class="site-template-title" [text]="item ? item.name : 'no data'"></Label>
+                    <Label class="site-template-description" [text]="item ? item.address : 'no data'"></Label>
+                </StackLayout>
+                <StackLayout margin="0,16,0,42" row="1" colSpan="2" backgroundColor="lightGray" height="1"></StackLayout>
+            </GridLayout>
+        </ng-template>
+    </ListView>
+
+    <ActivityIndicator verticalAlignment="center" horizontalAlignment="center" [busy]="isLoading"></ActivityIndicator>
+    <OfflineNotification></OfflineNotification>
+</GridLayout>
