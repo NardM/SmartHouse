@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular";
+import { SegmentedBar, SegmentedBarItem } from "tns-core-modules/ui/segmented-bar";
 
 
 @Component({
@@ -17,8 +18,15 @@ export class ChatsComponent implements OnInit {
     selectedTabview = 0;
     items: Array<any>;
     categories: Array<any>;
+    public myItems: Array<SegmentedBarItem>;
+    public prop: string = "Item 1";
 
     constructor(private routerExtensions: RouterExtensions) {
+        const chat = new SegmentedBarItem();
+        chat.title = "Чат";
+        const neigbor = new SegmentedBarItem();
+        neigbor.title = "Соседи";
+        this.myItems = [chat, neigbor];
     }
 
     ngOnInit(): void {
@@ -31,6 +39,11 @@ export class ChatsComponent implements OnInit {
 
     onContactsTap(){
 
+    }
+
+    public onSelectedIndexChange(args) {
+        const segmentedBar = <SegmentedBar>args.object;
+        this.selectedTabview = segmentedBar.selectedIndex;
     }
 
     showItem(itemId) {

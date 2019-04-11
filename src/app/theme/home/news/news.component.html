@@ -1,9 +1,15 @@
-<ListView [items]="countries" (itemTap)="onItemTap($event)" class="list-group">
-    <ng-template let-country="item" let-i="index" let-odd="odd" let-even="even">
-        <!-- The item template can only have a single root view container (e.g. GridLayout, StackLayout, etc.)-->
-        <StackLayout orientation="horizontal" class="list-group-item">
-            <Label text="Country: " textWrap="true"></Label>
-            <Label [text]="country.name"></Label>
+<GridLayout>
+    <ScrollView class="page">
+        <StackLayout>
+            <!-- On Android the card view plugin requires adding an external library
+                therefore it can't be demoed on Playground. You will have to download this project
+                and build it locally to try it on Android -->
+            <CardView *ngFor="let item of data" class="card" elevation="40" radius="10" ios:shadowRadius="3">
+                <StackLayout class="card-layout">
+                    <Label class="h2" [text]="item.heading"></Label>
+                    <Label class="body" textWrap="true" [text]="item.content"></Label>
+                </StackLayout>
+            </CardView>
         </StackLayout>
-    </ng-template>
-</ListView>
+    </ScrollView>
+</GridLayout>
