@@ -1,9 +1,11 @@
 import { request, getFile, getImage, getJSON, getString } from "tns-core-modules/http";
 import { Injectable } from "@angular/core";
 import * as appSettings from "tns-core-modules/application-settings";
-import { Observable, of } from "rxjs";
+import { Observable, Observer, of } from "rxjs";
 import { GUID } from "~/app/service/GUID";
 import Token = DeviceToken.Token;
+import { HttpClient,HttpHeaders } from "@angular/common/http";
+import { map } from "rxjs/operators";
 
 @Injectable()
 export class TokenService {
@@ -13,7 +15,7 @@ export class TokenService {
     private static deviceIdKey: string = 'device_id';
 
 
-    constructor() {
+    constructor(private http: HttpClient) {
     }
 
     public token(): Observable<string> {
@@ -39,14 +41,32 @@ export class TokenService {
             'app_build': 1
         };
 
-        request({
-            url: "http://ukapi.smartapi.ru/api/v1/device",
-            method: "POST",
-            headers: { "Content-Type": "application/json" }
-        }).then((response) => {
-            const result = response.content.toJSON() as Token;
-        }, (e) => {
+        const header = new HttpHeaders({
+            "Content-Type": "application/json"
         });
+
+        return this.http.post("http://ukapi.smartapi.ru/api/v1/device", JSON.stringify(params), {headers: header})
+            .pipe(map((response: any) => {
+                const result = response.json();
+                this.deviceToken = result.data.access_token;
+                appSettings.setString('device_token', result.data.access_token);
+                return result.data.access_token;
+            }));
+
+        /* return Observable.create((observer: Observer<string>) => {
+             request({
+                 url: "http://ukapi.smartapi.ru/api/v1/device",
+                 method: "POST",
+                 headers: {"Content-Type": "application/json"},
+                 content: JSON.stringify(params)
+             }).then((response) => {
+                 const result = response.content.toJSON() as Token;
+                 this.deviceToken = result.data.access_token;
+                 appSettings.setString('device_token', result.data.access_token)
+                 observer.next(result.data.access_token);
+             }, (e) => {
+             });
+         });*/
     }
 
 

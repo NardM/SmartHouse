@@ -5,7 +5,7 @@ import * as connectivityModule from "tns-core-modules/connectivity";
     providedIn: 'root',
 })
 export class ConnectivityStatusService {
-    statusChangeEvent: EventEmitter<boolean> = new EventEmitter();
+  /*  statusChangeEvent: EventEmitter<boolean> = new EventEmitter();
 
     private currentStatus: boolean;
     private backendStatusEvent: EventEmitter<boolean> = new EventEmitter();
@@ -51,5 +51,5 @@ export class ConnectivityStatusService {
             this.currentStatus = status;
             this.statusChangeEvent.emit(status);
         }
-    }
+    }*/
 }

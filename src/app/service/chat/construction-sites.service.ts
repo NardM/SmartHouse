@@ -21,7 +21,7 @@ const editableProperties = [
 @Injectable()
 export class ConstructionSitesService {
 
-    private static cloneUpdateModel(constructionSite: ConstructionSite): object {
+   /* private static cloneUpdateModel(constructionSite: ConstructionSite): object {
         // return null;
         // tslint:disable-next-line:ban-comma-operator
         return editableProperties.reduce((prev, current) => (prev[current] = constructionSite[current], prev),
@@ -41,15 +41,15 @@ export class ConstructionSitesService {
 
     private isLoggedIn: boolean = false;
 
-    constructor(private connectivityStatusService: ConnectivityStatusService) {
-        this.isOnline = this.connectivityStatusService.getCurrentStatus();
+    constructor() {
+       /!* this.isOnline = this.connectivityStatusService.getCurrentStatus();
         this.connectivityStatusService.statusChangeEvent.subscribe((status) => {
             if (!this.isOnline && status) {
                 this.sync();
             }
 
             this.isOnline = status;
-        });
+        });*!/
     }
 
     updateData() {
@@ -235,5 +235,5 @@ export class ConstructionSitesService {
         const extension = imageExtension === "jpg" ? "jpeg" : imageExtension;
 
         return "image/" + extension.replace(/\./g, "");
-    }
+    }*/
 }

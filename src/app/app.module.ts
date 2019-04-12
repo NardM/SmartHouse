@@ -8,6 +8,8 @@ import { NativeScriptFormsModule } from "nativescript-angular";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { LoginComponent } from "~/app/theme/login/login.component";
 import { HttpClientModule } from "@angular/common/http";
+import { LoginService } from "~/app/service/login.service";
+import { TokenService } from "~/app/service/token.service";
 
 @NgModule({
     bootstrap: [
@@ -29,6 +31,8 @@ import { HttpClientModule } from "@angular/common/http";
         NO_ERRORS_SCHEMA
     ],
     providers: [
+        LoginService,
+        TokenService
     ]
 })
 export class AppModule { }

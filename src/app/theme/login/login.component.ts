@@ -3,6 +3,7 @@ import { Page } from "tns-core-modules/ui/page";
 import { RouterExtensions } from "nativescript-angular";
 import { User } from "~/app/model/user.model";
 import { UserService } from "~/app/service/user.service";
+import { LoginService } from "~/app/service/login.service";
 
 @Component({
     selector: "hs-login",
@@ -19,6 +20,7 @@ export class LoginComponent  {
     @ViewChild("confirmPassword") confirmPassword: ElementRef;
 
     constructor(private page: Page,
+                private loginService: LoginService,
                 private routerExtensions: RouterExtensions) {
         this.page.actionBarHidden = true;
         this.user = new User();
@@ -38,10 +40,16 @@ export class LoginComponent  {
     }
 
     submit() {
-        if (!this.checkPhone) {
+        if (!this.checkPhone()) {
             this.alert("Пожалуйста, введите корректный номер телефона");
             return;
         }
+
+        this.loginService.login(this.user.phone)
+            .subscribe((result) => {
+                this.isLoggingIn = true;
+                debugger;
+            });
 
         this.processing = true;
         if (this.isLoggingIn) {

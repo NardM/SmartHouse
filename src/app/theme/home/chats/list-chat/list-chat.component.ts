@@ -4,8 +4,6 @@ import { RouterExtensions } from "nativescript-angular";
 import { Page } from "tns-core-modules/ui/page";
 import { Subscription } from "rxjs";
 import { ConstructionSite } from "~/app/service/chat/construction-site.model";
-import { ConnectivityStatusService } from "~/app/service/chat/connectivity-status.service";
-import { ConstructionSitesService } from "~/app/service/chat/construction-sites.service";
 
 
 @Component({
@@ -20,15 +18,15 @@ export class ListChatsComponent implements OnInit, OnDestroy {
     statusChangeSubscr: Subscription;
 
     constructor(
-        private _constructionSitesService: ConstructionSitesService,
+  //      private _constructionSitesService: ConstructionSitesService,
         private _routerExtensions: RouterExtensions,
         private _page: Page,
         private _ngZone: NgZone,
-        private connectivityStatusService: ConnectivityStatusService
+   //     private connectivityStatusService: ConnectivityStatusService
     ) {
         _page.on("navigatedTo", (args) => this.onNavigatedTo());
 
-        this.statusChangeSubscr = this.connectivityStatusService.statusChangeEvent.subscribe((status) => this.onConnectivityStatusChange(status));
+     //   this.statusChangeSubscr = this.connectivityStatusService.statusChangeEvent.subscribe((status) => this.onConnectivityStatusChange(status));
     }
 
     onConnectivityStatusChange(newStatus) {
@@ -50,16 +48,16 @@ export class ListChatsComponent implements OnInit, OnDestroy {
             this.isLoading = true;
         });
 
-        this._constructionSitesService.updateData();
+ //       this._constructionSitesService.updateData();
     }
 
     ngOnInit(): void {
-        this._constructionSitesService.allItems.subscribe((allConstructionSites) => {
+        /*this._constructionSitesService.allItems.subscribe((allConstructionSites) => {
             this._ngZone.run(() => {
                 this.constructionSites = new ObservableArray<ConstructionSite>(allConstructionSites);
                 this.isLoading = false;
             });
-        });
+        });*/
     }
 
     counter(i: number) {

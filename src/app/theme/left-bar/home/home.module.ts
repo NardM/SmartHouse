@@ -14,8 +14,8 @@ import { ChatsComponent } from "~/app/theme/home/chats/chats.component";
 import { ListContactsComponent } from "~/app/theme/home/chats/list-constacts/list-constacts.component";
 import { ListChatsComponent } from "~/app/theme/home/chats/list-chat/list-chat.component";
 import { ChatComponent } from "~/app/theme/home/chats/chat/chat.component";
-import { ConnectivityStatusService } from "~/app/service/chat/connectivity-status.service";
-import { ConstructionSitesService } from "~/app/service/chat/construction-sites.service";
+import { TokenService } from "~/app/service/token.service";
+import { LoginService } from "~/app/service/login.service";
 
 @NgModule({
     imports: [
@@ -37,8 +37,7 @@ import { ConstructionSitesService } from "~/app/service/chat/construction-sites.
     ],
     providers: [
         ServiceService,
-        ConstructionSitesService,
-        ConnectivityStatusService
+
     ],
     schemas: [
         NO_ERRORS_SCHEMA
