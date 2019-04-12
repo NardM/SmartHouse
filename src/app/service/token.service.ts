@@ -45,28 +45,16 @@ export class TokenService {
             "Content-Type": "application/json"
         });
 
-        return this.http.post("http://ukapi.smartapi.ru/api/v1/device", JSON.stringify(params), {headers: header})
-            .pipe(map((response: any) => {
-                const result = response.json();
-                this.deviceToken = result.data.access_token;
-                appSettings.setString('device_token', result.data.access_token);
-                return result.data.access_token;
-            }));
-
-        /* return Observable.create((observer: Observer<string>) => {
-             request({
-                 url: "http://ukapi.smartapi.ru/api/v1/device",
-                 method: "POST",
-                 headers: {"Content-Type": "application/json"},
-                 content: JSON.stringify(params)
-             }).then((response) => {
-                 const result = response.content.toJSON() as Token;
-                 this.deviceToken = result.data.access_token;
-                 appSettings.setString('device_token', result.data.access_token)
-                 observer.next(result.data.access_token);
-             }, (e) => {
-             });
-         });*/
+        return Observable.create((observer: Observer<string>) => {
+            this.http.post("http://ukapi.smartapi.ru/api/v1/device", JSON.stringify(params), {headers: header})
+                .toPromise()
+                .then((response: any) => {
+                    const result = response.json();
+                    this.deviceToken = result.data.access_token;
+                    appSettings.setString('device_token', result.data.access_token);
+                    observer.next(result.data.access_token);
+                });
+        });
     }
 
 

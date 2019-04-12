@@ -20,17 +20,19 @@ export class LoginService {
 
     login(phone: string) {
         return this.tokenService.token()
-            .pipe(
-                map((token: string) => new HttpHeaders({
+            .subscribe(
+                (token: string) => {
+                    const header = new HttpHeaders({
                         "Content-Type": "application/json",
                         Authorization: "Bearer " + token
-                    }),
-                    tap((headers) => {
+                    });
+                    Observable.create((observer: Observer<any>) => {
                         this.http.post("http://ukapi.smartapi.ru/api/v1/account/login",
                             JSON.stringify({phone: phone}),
-                            {headers: headers})
-                            .pipe(map((response: any) => response.json()))
-                    })));
+                            {headers: header})
+                            .subscribe((response: any) => observer.next(response.json()));
+                    });
+                });
     }
 
     confirm(phone: string, code: string)  {
