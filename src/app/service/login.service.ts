@@ -18,26 +18,57 @@ export class LoginService {
                 private  tokenService: TokenService) {
     }
 
-    login(phone: string) {
-        return this.tokenService.token()
-            .subscribe(
-                (token: string) => {
-                    const header = new HttpHeaders({
-                        "Content-Type": "application/json",
-                        Authorization: "Bearer " + token
-                    });
-                    Observable.create((observer: Observer<any>) => {
+    test(){
+        let options = this.createRequestOptions();
+        return this.http.post("http://ukapi.smartapi.ru/api/v1/device", {}, { headers: options });
+    }
+
+    private createRequestOptions() {
+        let headers = new HttpHeaders({
+            "Content-Type": "application/json"
+        });
+        return headers;
+    }
+
+    login(phone: string): Observable<any> {
+        return Observable.create((observer: Observer<any>) => {
+            return this.tokenService.token()
+                .subscribe(
+                    (token: string) => {
+                        const header = new HttpHeaders({
+                            "Content-Type": "application/json",
+                            Authorization: "Bearer " + token
+                        });
                         this.http.post("http://ukapi.smartapi.ru/api/v1/account/login",
                             JSON.stringify({phone: phone}),
                             {headers: header})
-                            .subscribe((response: any) => observer.next(response.json()));
+                            .subscribe((response: any) => observer.next(response));
                     });
-                });
+        });
     }
 
-    confirm(phone: string, code: string)  {
-
+    confirm(phone: string, code: string): Observable<any>  {
+        return Observable.create((observer: Observer<any>) => {
+            return this.tokenService.token()
+                .subscribe(
+                    (token: string) => {
+                        const header = new HttpHeaders({
+                            "Content-Type": "application/json",
+                            Authorization: "Bearer " + token
+                        });
+                        this.http.post("http://ukapi.smartapi.ru/api/v1/account/confirm",
+                            JSON.stringify({phone: phone, code: code}),
+                            {headers: header})
+                            .subscribe((response: any) => {
+                                if (response.success) {
+                                    this.tokenService.saveLoginToken(response.data.access_token);
+                                }
+                                observer.next(response);
+                            });
+                    });
+        });
     }
+
 
     private static handleError(error: any) {
 

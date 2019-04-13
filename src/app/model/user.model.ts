@@ -1,4 +1,4 @@
 export class User {
     phone: string;
-    code: number;
+    code: string;
 }

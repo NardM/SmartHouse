@@ -25,6 +25,7 @@ export class LoginComponent  {
         this.page.actionBarHidden = true;
         this.user = new User();
         this.user.phone = "+7";
+        this.user.code = "";
     }
 
     toggleForm() {
@@ -44,31 +45,22 @@ export class LoginComponent  {
             this.alert("Пожалуйста, введите корректный номер телефона");
             return;
         }
+        this.processing = true;
 
         this.loginService.login(this.user.phone)
             .subscribe((result) => {
-                this.isLoggingIn = true;
+                this.isLoggingIn = false;
+                this.processing = false;
                 debugger;
             });
 
-        this.processing = true;
-        if (this.isLoggingIn) {
-            this.login();
-        } else {
-            this.register();
-        }
     }
 
     login() {
-      /*  this.userService.login(this.user)
-            .then(() => {
-                this.processing = false;
+        this.loginService.confirm(this.user.phone, this.user.code)
+            .subscribe(() => {
                 this.routerExtensions.navigate(["/home"], { clearHistory: true });
-            })
-            .catch(() => {
-                this.processing = false;
-                this.alert("Unfortunately we could not find your account.");
-            });*/
+            });
     }
 
     register() {

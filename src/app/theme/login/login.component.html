@@ -5,7 +5,9 @@
 
         <PreviousNextView>
             <GridLayout rows="auto, auto, auto">
-                <StackLayout row="0" class="input-field">
+                <StackLayout *ngIf="isLoggingIn"
+                             row="0"
+                             class="input-field">
                     <TextField class="input"
                                hint="Телефон"
                                [isEnabled]="!processing"
@@ -20,8 +22,12 @@
 
 
                 <StackLayout row="2" *ngIf="!isLoggingIn" class="input-field">
-                    <TextField #confirmPassword class="input" [isEnabled]="!processing"
-                               hint="Confirm password" secure="true" [(ngModel)]="user.code"
+                    <TextField #confirmPassword
+                               class="input"
+                               [isEnabled]="!processing"
+                               hint="Код"
+                               secure="true"
+                               [(ngModel)]="user.code"
                                returnKeyType="done"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>-->
@@ -30,8 +36,8 @@
             </GridLayout>
         </PreviousNextView>
 
-        <Button [text]="isLoggingIn ? 'Получить код' : 'Sign Up'" [isEnabled]="!processing"
-                (tap)="submit()" class="btn btn-primary m-t-20"></Button>
+        <Button [text]="isLoggingIn ? 'Получить код' : 'Отправить'" [isEnabled]="!processing"
+                (tap)="isLoggingIn ? submit() : login()" class="btn btn-primary m-t-20"></Button>
     </StackLayout>
 
 

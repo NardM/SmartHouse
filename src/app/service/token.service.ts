@@ -49,7 +49,7 @@ export class TokenService {
             this.http.post("http://ukapi.smartapi.ru/api/v1/device", JSON.stringify(params), {headers: header})
                 .toPromise()
                 .then((response: any) => {
-                    const result = response.json();
+                    const result = response;
                     this.deviceToken = result.data.access_token;
                     appSettings.setString('device_token', result.data.access_token);
                     observer.next(result.data.access_token);
@@ -62,8 +62,10 @@ export class TokenService {
 
     }
 
-    saveLoginToken(token: String, expires_in: number) {
-
+    saveLoginToken(token: string): string {
+        this.loginToken = token;
+        appSettings.setString('login_token', token.toString());
+        return token;
     }
 
     private static handleError(error: any) {
