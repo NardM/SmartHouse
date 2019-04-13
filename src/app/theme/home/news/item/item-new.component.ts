@@ -1,16 +1,17 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
-class Country {
-    constructor(public name: string) { }
-}
+import { NewsItem } from "~/app/model/news.model";
 
 @Component({
     selector: "hs-item-new",
     moduleId: module.id,
-    templateUrl: "./item-new.component.html"
+    templateUrl: "./item-new.component.html",
+    styleUrls: ["./item-new.component.scss"]
 })
 export class ItemNewComponent implements OnInit {
+
+    @Input() item: NewsItem;
 
     constructor() {
     }
@@ -21,13 +22,5 @@ export class ItemNewComponent implements OnInit {
     onDrawerButtonTap(): void {
         const sideDrawer = <RadSideDrawer>app.getRootView();
         sideDrawer.showDrawer();
-    }
-
-    public countries: Array<Country>;
-
-
-
-    public onItemTap(args) {
-        console.log("Item Tapped at cell index: " + args.index);
     }
 }

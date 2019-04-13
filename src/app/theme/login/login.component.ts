@@ -51,7 +51,7 @@ export class LoginComponent  {
             .subscribe((result) => {
                 this.isLoggingIn = false;
                 this.processing = false;
-                debugger;
+                this.user.code = result.data.code;
             });
 
     }

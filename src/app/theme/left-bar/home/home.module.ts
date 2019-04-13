@@ -16,12 +16,15 @@ import { ListChatsComponent } from "~/app/theme/home/chats/list-chat/list-chat.c
 import { ChatComponent } from "~/app/theme/home/chats/chat/chat.component";
 import { TokenService } from "~/app/service/token.service";
 import { LoginService } from "~/app/service/login.service";
+import { ItemNewComponent } from "~/app/theme/home/news/item/item-new.component";
+import { NativeScriptFormsModule } from "nativescript-angular";
 
 @NgModule({
     imports: [
         NativeScriptCommonModule,
         HomeRoutingModule,
-        NativeScriptUIDataFormModule
+        NativeScriptUIDataFormModule,
+        NativeScriptFormsModule
     ],
     declarations: [
         HomeComponent,
@@ -33,7 +36,8 @@ import { LoginService } from "~/app/service/login.service";
         ChatsComponent,
         ListContactsComponent,
         ListChatsComponent,
-        ChatComponent
+        ChatComponent,
+        ItemNewComponent
     ],
     providers: [
         ServiceService,

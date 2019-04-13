@@ -1,8 +1,9 @@
-.card {
+.new-item {
   background-color: #fff;
   color: #4d4d4d;
   margin: 15 15 0;
-  border-left: 1px solid blue;
+  border-left-color: blue;
+  border-left-width: 3;
   padding: 10;
 }
 .card-layout {
@@ -10,4 +11,12 @@
 }
 .card-layout .h1 {
   margin-bottom: 15;
+}
+
+.title{
+  font-size: 15;
+}
+
+.description{
+  font-size: 15;
 }

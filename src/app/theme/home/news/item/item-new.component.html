@@ -1,9 +1,5 @@
-<ListView [items]="countries" (itemTap)="onItemTap($event)" class="list-group">
-    <ng-template let-country="item" let-i="index" let-odd="odd" let-even="even">
-        <!-- The item template can only have a single root view container (e.g. GridLayout, StackLayout, etc.)-->
-        <StackLayout orientation="horizontal" class="list-group-item">
-            <Label text="Country: " textWrap="true"></Label>
-            <Label [text]="country.name"></Label>
-        </StackLayout>
-    </ng-template>
-</ListView>
+<StackLayout orientation="vertical" class="new-item">
+    <Label class="title" [text]="item.title"></Label>
+    <Label class="description" textWrap="true" [text]="item.text"></Label>
+    <Label class="bottom-bar" textWrap="false" ></Label>
+</StackLayout>
