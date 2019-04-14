@@ -5,6 +5,7 @@ import { DrawerTransitionBase, RadSideDrawer, SlideInOnTopTransition } from "nat
 import { filter } from "rxjs/operators";
 import * as app from "tns-core-modules/application";
 const firebase = require("nativescript-plugin-firebase");
+import * as appSettings from "tns-core-modules/application-settings";
 
 @Component({
     moduleId: module.id,
@@ -38,6 +39,10 @@ export class AppComponent implements OnInit {
                 console.log(`firebase.init error: ${error}`);
             }
         );
+    }
+
+    onExit(){
+        appSettings.clear();
     }
 
     get sideDrawerTransition(): DrawerTransitionBase {

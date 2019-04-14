@@ -1,19 +1,24 @@
-<GridLayout>
-    <ScrollView class="page">
-        <StackLayout>
-            <!-- On Android the card view plugin requires adding an external library
-                therefore it can't be demoed on Playground. You will have to download this project
-                and build it locally to try it on Android -->
-            <CardView *ngFor="let item of data" class="card" elevation="40" radius="10" ios:shadowRadius="3">
-                <StackLayout class="card-layout">
-                    <Image class="site-template-image thumb-with-background"
-                           stretch="aspectFill"
-                           [src]="item && item.getThumbnailUrl ? item.getThumbnailUrl() : null">
-                    </Image>
-                    <Label class="h2" [text]="item.heading"></Label>
-                    <Label class="body" textWrap="true" [text]="item.content"></Label>
-                </StackLayout>
-            </CardView>
+<GridLayout class="news">
+    <ScrollView class="page news">
+        <StackLayout orientation="vertical">
+            <StackLayout orientation="horizontal" class="item">
+                <Image width="200"
+                       loadMode="async"
+                       stretch="aspectFill"
+                       height="100"
+                       margin="10"
+                       src="http://94.180.247.6/jpgmulreq/1/image.jpg?key=1516975535684&lq=1&1555280697"></Image>
+                <Label marginLeft="10" class="description" text="Заброшка" verticalAlignment="center"></Label>
+            </StackLayout>
+            <StackLayout orientation="horizontal" class="item">
+                <Image width="200"
+                       loadMode="async"
+                       stretch="aspectFill"
+                       height="100"
+                       margin="10"
+                       src="https://pp.userapi.com/c849128/v849128363/170b28/DfpfOKMKXeE.jpg"></Image>
+                <Label class="description" marginLeft="10" text="Коридор" verticalAlignment="center"></Label>
+            </StackLayout>
         </StackLayout>
     </ScrollView>
 </GridLayout>

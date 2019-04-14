@@ -8,7 +8,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
         <StackLayout row="0" class="sidedrawer-header">
             <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
             <Label class="sidedrawer-header-brand" text="Мутигуллин Ленар"></Label>
-            <Label class="footnote" text="test@mail.com"></Label>
+            <Label class="footnote" text="Квартира 5"></Label>
         </StackLayout>
     
         <ScrollView row="1">
@@ -79,7 +79,14 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                             [class.selected]="isComponentSelected('/settings')"
                             (tap)="onNavItemTap('/settings')">
                     <Label col="0" text="&#xf013;" class="fa"></Label>
-                    <Label col="1" text="Settings" class="p-r-10"></Label>
+                    <Label col="1" text="Настройки" class="p-r-10"></Label>
+                </GridLayout>
+                <GridLayout columns="auto, *"
+                            class="sidedrawer-list-item"
+                            [class.selected]="isComponentSelected('/settings')"
+                            (tap)="onExit()">
+                    <Label col="0" text="&#xf013;" class="fa"></Label>
+                    <Label col="1" text="Выход" class="p-r-10"></Label>
                 </GridLayout>
             </StackLayout>
         </ScrollView>
