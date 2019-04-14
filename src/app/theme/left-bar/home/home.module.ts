@@ -18,6 +18,7 @@ import { TokenService } from "~/app/service/token.service";
 import { LoginService } from "~/app/service/login.service";
 import { ItemNewComponent } from "~/app/theme/home/news/item/item-new.component";
 import { NativeScriptFormsModule } from "nativescript-angular";
+import { LabelMaxLinesDirective } from "~/app/directive/label-max-lines.directive";
 
 @NgModule({
     imports: [
@@ -37,7 +38,8 @@ import { NativeScriptFormsModule } from "nativescript-angular";
         ListContactsComponent,
         ListChatsComponent,
         ChatComponent,
-        ItemNewComponent
+        ItemNewComponent,
+        LabelMaxLinesDirective
     ],
     providers: [
         ServiceService,

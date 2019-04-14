@@ -1,6 +1,6 @@
 <StackLayout orientation="vertical" class="new-item">
     <Label class="title" [text]="item.title"></Label>
-    <Label class="description" textWrap="true" [text]="item.text"></Label>
+    <Label [maxLines]="2" class="description" textWrap="true" [text]="item.text"></Label>
     <FlexboxLayout  orientation="horizontal" justifyContent="space-between" >
         <Label class="author" textWrap="false" text="Ваш УК"></Label>
         <Label class="date" textWrap="false" text="Ваш УК"></Label>

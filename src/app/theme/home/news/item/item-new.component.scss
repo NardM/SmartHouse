@@ -19,6 +19,8 @@
 
 .description{
   font-size: 15;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .author{
