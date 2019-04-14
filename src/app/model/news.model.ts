@@ -3,6 +3,8 @@ export interface INewsItem {
     title: string;
     text: string;
     url: string;
+    date: string;
+    seenCount: number;
 }
 
 export class NewsItem implements INewsItem {
@@ -10,11 +12,15 @@ export class NewsItem implements INewsItem {
     text: string;
     title: string;
     url: string;
+    date: string;
+    seenCount: number;
 
     constructor(data: INewsItem) {
         this.id = data.id;
         this.text = data.text;
         this.title = data.title;
         this.url = data.url;
+        this.seenCount = data.seenCount;
+        this.date = data.date;
     }
 }

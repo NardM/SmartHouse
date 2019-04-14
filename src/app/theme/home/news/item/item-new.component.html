@@ -5,10 +5,10 @@
     <Label [maxLines]="2" class="description" textWrap="true" [text]="item.text"></Label>
     <FlexboxLayout  orientation="horizontal" justifyContent="space-between" >
         <Label class="author" textWrap="false" text="Ваш УК"></Label>
-        <Label class="date" textWrap="false" text="Ваш УК"></Label>
+        <Label class="date" textWrap="false" [text]="item.date"></Label>
         <StackLayout orientation="horizontal" >
             <Image src="res://message"  width="20" height="20" marginRight="3"></Image>
-            <Label text="0"></Label>
+            <Label [text]="item.seenCount"></Label>
         </StackLayout>
     </FlexboxLayout >
 </StackLayout>

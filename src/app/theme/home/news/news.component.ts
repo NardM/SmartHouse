@@ -20,13 +20,23 @@ export class NewsComponent implements OnInit {
                 private newsService: CurrentNewService,
                 private routerExtensions: RouterExtensions) {
         this.data = [];
+        const dataNew = new NewsItem({
+            id: 2,
+            title: "18.04.19 с 10:00 до 13:00",
+            text: "Будет плановое отключение электричества из-Будет плановое отключение электричества из-заБудет плановое отключение электричества из-заза",
+            seenCount: 1,
+            date: 'Вчера в 15:00',
+            url: ""
+        });
         const data = new NewsItem({
             id: 1,
             title: "18.04.19 с 10:00 до 13:00",
             text: "Будет плановое отключение электричества из-Будет плановое отключение электричества из-заБудет плановое отключение электричества из-заза",
+            seenCount: 0,
+            date: '10.04.2019 в 20:00',
             url: ""
         });
-        this.data = [data, data, data, data, data, data, data];
+        this.data = [dataNew, data, data, data, data, data, data];
     }
 
     ngOnInit(): void {

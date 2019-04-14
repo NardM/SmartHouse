@@ -21,6 +21,7 @@ import { NativeScriptFormsModule } from "nativescript-angular";
 import { LabelMaxLinesDirective } from "~/app/directive/label-max-lines.directive";
 import { CurrentNewService } from "~/app/theme/home/news/shared/current-new.service";
 import { DetailNewComponent } from "~/app/theme/home/news/detail-new/detail-new.component";
+import { ChatItemComponent } from "~/app/theme/home/chats/chat/item/chat-item.component";
 
 @NgModule({
     imports: [
@@ -42,7 +43,8 @@ import { DetailNewComponent } from "~/app/theme/home/news/detail-new/detail-new.
         ChatComponent,
         ItemNewComponent,
         LabelMaxLinesDirective,
-        DetailNewComponent
+        DetailNewComponent,
+        ChatItemComponent
     ],
     providers: [
         ServiceService,
