@@ -13,8 +13,17 @@
 
     <Label class="action-bar-title" text="Комментарии"></Label>
 </ActionBar>
-<StackLayout>
-    <hs-item-new [item]="item"></hs-item-new>
-    <StackLayout class="hr-light m-10"></StackLayout>
-    <hs-chat-item></hs-chat-item>
+<StackLayout orientation="vertical">
+    <StackLayout  height="90%" >
+        <hs-item-new [item]="item"></hs-item-new>
+        <StackLayout class="hr-light m-10"></StackLayout>
+        <hs-chat-item></hs-chat-item>
+    </StackLayout>
+
+    <StackLayout #chatbox  verticalAlignment="bottom" height="10%">
+        <GridLayout columns="*,auto" style="padding: 10%"  >
+            <TextField #textfield class="chatTextField" row="0" col="0" ></TextField>
+            <Button #btn class="chatBtn" row="0" col="1" text="Отправить" ></Button>
+        </GridLayout>
+    </StackLayout>
 </StackLayout>
