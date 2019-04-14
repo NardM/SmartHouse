@@ -26,7 +26,17 @@ export class NewsComponent implements OnInit {
             text: "Будет плановое отключение электричества из-Будет плановое отключение электричества из-заБудет плановое отключение электричества из-заза",
             seenCount: 1,
             date: 'Вчера в 15:00',
-            url: ""
+            url: "",
+            author: "Ваш УК"
+        });
+        const dataNew2 = new NewsItem({
+            id: 2,
+            title: "",
+            text: "В подъезде была найдена кошка. Хозяевам обращаться в 28 квартиру",
+            seenCount: 0,
+            date: 'Вчера в 15:04',
+            url: "",
+            author: "Квартира 28"
         });
         const data = new NewsItem({
             id: 1,
@@ -34,9 +44,10 @@ export class NewsComponent implements OnInit {
             text: "Будет плановое отключение электричества из-Будет плановое отключение электричества из-заБудет плановое отключение электричества из-заза",
             seenCount: 0,
             date: '10.04.2019 в 20:00',
-            url: ""
+            url: "",
+            author: "Ваш УК"
         });
-        this.data = [dataNew, data, data, data, data, data, data];
+        this.data = [dataNew,dataNew2, data, data, data, data, data, data];
     }
 
     ngOnInit(): void {

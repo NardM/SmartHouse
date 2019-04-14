@@ -1,10 +1,10 @@
 <StackLayout orientation="vertical"
              class="new-item"
              (tap)="onNavigate(item)">
-    <Label class="title" [text]="item.title"></Label>
+    <Label *ngIf="item.title" class="title" [text]="item.title"></Label>
     <Label [maxLines]="2" class="description" textWrap="true" [text]="item.text"></Label>
     <FlexboxLayout  orientation="horizontal" justifyContent="space-between" >
-        <Label class="author" textWrap="false" text="Ваш УК"></Label>
+        <Label class="author" textWrap="false" [text]="item.author"></Label>
         <Label class="date" textWrap="false" [text]="item.date"></Label>
         <StackLayout orientation="horizontal" >
             <Image src="res://message"  width="20" height="20" marginRight="3"></Image>

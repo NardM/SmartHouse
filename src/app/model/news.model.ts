@@ -4,6 +4,7 @@ export interface INewsItem {
     text: string;
     url: string;
     date: string;
+    author: string;
     seenCount: number;
 }
 
@@ -13,6 +14,7 @@ export class NewsItem implements INewsItem {
     title: string;
     url: string;
     date: string;
+    author: string;
     seenCount: number;
 
     constructor(data: INewsItem) {
@@ -22,5 +24,6 @@ export class NewsItem implements INewsItem {
         this.url = data.url;
         this.seenCount = data.seenCount;
         this.date = data.date;
+        this.author = data.author;
     }
 }

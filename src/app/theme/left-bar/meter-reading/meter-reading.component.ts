@@ -48,7 +48,6 @@ export class MeterReadingComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // Init your component properties here.
     }
 
     onDrawerButtonTap(): void {
