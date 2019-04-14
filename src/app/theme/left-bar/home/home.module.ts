@@ -19,6 +19,8 @@ import { LoginService } from "~/app/service/login.service";
 import { ItemNewComponent } from "~/app/theme/home/news/item/item-new.component";
 import { NativeScriptFormsModule } from "nativescript-angular";
 import { LabelMaxLinesDirective } from "~/app/directive/label-max-lines.directive";
+import { CurrentNewService } from "~/app/theme/home/news/shared/current-new.service";
+import { DetailNewComponent } from "~/app/theme/home/news/detail-new/detail-new.component";
 
 @NgModule({
     imports: [
@@ -39,11 +41,12 @@ import { LabelMaxLinesDirective } from "~/app/directive/label-max-lines.directiv
         ListChatsComponent,
         ChatComponent,
         ItemNewComponent,
-        LabelMaxLinesDirective
+        LabelMaxLinesDirective,
+        DetailNewComponent
     ],
     providers: [
         ServiceService,
-
+        CurrentNewService
     ],
     schemas: [
         NO_ERRORS_SCHEMA
