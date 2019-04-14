@@ -14,16 +14,19 @@
     <Label class="action-bar-title" [text]="currentItem.title"></Label>
 </ActionBar>
 <StackLayout class="m-15" sdkExampleTitle sdkToggleNavButton>
-    <RadDataForm tkExampleTitle
-                 tkToggleNavButton
-                 [metadata]="metadata"
-                 [source]="store"></RadDataForm>
+    <StackLayout height="90%">
+        <RadDataForm tkExampleTitle
+                     tkToggleNavButton
+                     [metadata]="metadata"
+                     [source]="store"></RadDataForm>
 
-    <Button *ngIf="!imageUpload" text="Загрузить изображение" (tap)="onSelectSingleTap()"></Button>
+        <Button *ngIf="!imageUpload" text="Загрузить изображение" (tap)="onSelectSingleTap()"></Button>
 
-    <Image [src]="imageSrc" *ngIf="isSingleMode && imageUpload" [width]="previewSize" [height]="previewSize" stretch="aspectFit"></Image>
+        <Image [src]="imageSrc" *ngIf="isSingleMode && imageUpload" [width]="previewSize" [height]="previewSize" stretch="aspectFit"></Image>
+
+    </StackLayout>
 
 
-    <Button [text]="currentItem.submit" (tap)="onSubmit()"></Button>
+    <Button height="0%" [text]="currentItem.submit" verticalAlignment="bottom" (tap)="onSubmit()"  class="submit"></Button>
 
 </StackLayout>

@@ -11,7 +11,8 @@ class Country {
 @Component({
     selector: "hs-service",
     moduleId: module.id,
-    templateUrl: "./service.component.html"
+    templateUrl: "./service.component.html",
+    styleUrls: ["./service.component.scss"]
 })
 export class ServiceComponent implements OnInit {
 

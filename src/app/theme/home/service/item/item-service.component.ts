@@ -10,7 +10,8 @@ import { ServiceModel } from "~/app/theme/home/service/shared/service.model";
 @Component({
     selector: "hs-item-service",
     moduleId: module.id,
-    templateUrl: "./item-service.component.html"
+    templateUrl: "./item-service.component.html",
+    styleUrls: ["./item-service.component.scss"]
 })
 export class ItemServiceComponent implements OnInit {
 
