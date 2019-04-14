@@ -31,14 +31,6 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
 
                 <GridLayout columns="auto, *"
                             class="sidedrawer-list-item"
-                            [class.selected]="isComponentSelected('/login')"
-                            (tap)="onNavItemTap('/login')">
-                    <Label col="0" text="&#xf1ea;" class="fa"></Label>
-                    <Label col="1" text="Login ы" class="p-r-10"></Label>
-                </GridLayout>
-
-                <GridLayout columns="auto, *"
-                            class="sidedrawer-list-item"
                             [class.selected]="isComponentSelected('/history-payment')"
                             (tap)="onNavItemTap('/history-payment')">
                     <Label col="0" text="&#xf1ea;" class="fa"></Label>
@@ -76,8 +68,8 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
 
                 <GridLayout columns="auto, *"
                             class="sidedrawer-list-item"
-                            [class.selected]="isComponentSelected('/settings')"
-                            (tap)="onNavItemTap('/settings')">
+                            [class.selected]="isComponentSelected('/login')"
+                            (tap)="onNavItemTap('/login')">
                     <Label col="0" text="&#xf013;" class="fa"></Label>
                     <Label col="1" text="Настройки" class="p-r-10"></Label>
                 </GridLayout>
