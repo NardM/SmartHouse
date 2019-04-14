@@ -12,10 +12,18 @@
     <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
         ios.position="left">
     </ActionItem>
-    <Label class="action-bar-title" text="Отправить показание счетчиков"></Label>
+    <Label class="action-bar-title" text="Показание счетчиков"></Label>
 </ActionBar>
 
 <GridLayout class="page page-content">
-    <Label class="page-icon fa" text="&#xf1ea;"></Label>
-    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
+    <StackLayout>
+        <RadDataForm tkExampleTitle
+                     tkToggleNavButton
+                     height="90%"
+                     class="form"
+                     [metadata]="metadata"
+                     [source]="store"></RadDataForm>
+
+        <Button class="submit" height="10%"  text="Отправить" (tap)="onSubmit()" verticalAlignment="bottom"></Button>
+    </StackLayout>
 </GridLayout>
