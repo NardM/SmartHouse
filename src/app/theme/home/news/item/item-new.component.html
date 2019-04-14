@@ -1,5 +1,12 @@
 <StackLayout orientation="vertical" class="new-item">
     <Label class="title" [text]="item.title"></Label>
     <Label class="description" textWrap="true" [text]="item.text"></Label>
-    <Label class="bottom-bar" textWrap="false" ></Label>
+    <FlexboxLayout  orientation="horizontal" justifyContent="space-between" >
+        <Label class="author" textWrap="false" text="Ваш УК"></Label>
+        <Label class="date" textWrap="false" text="Ваш УК"></Label>
+        <StackLayout orientation="horizontal" >
+            <Image src="res://message"  width="20" height="20" marginRight="10"></Image>
+            <Label text="0"></Label>
+        </StackLayout>
+    </FlexboxLayout >
 </StackLayout>
