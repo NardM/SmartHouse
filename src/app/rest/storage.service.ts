@@ -27,34 +27,30 @@ export class StorageService implements OnDestroy {
 
     getItem(key: string) {
         const item = appSettings.getString(key);
-        const value = JSON.parse(item);
-        if (value === "null") {
+        if (item === "null" || item === undefined) {
             return null;
         }
 
-        return value;
+        return item;
     }
 
     store(key: string, data: any): void {
-        appSettings.setString(key, JSON.stringify(data));
-        // the local application doesn't seem to catch changes to localStorage...
+        appSettings.setString(key, data);
         this.onSubject.next({key, value: data});
     }
 
     setItem(key: string, data: any): void {
-        appSettings.setString(key, JSON.stringify(data));
-        // the local application doesn't seem to catch changes to localStorage...
+        appSettings.setString(key, data);
         this.onSubject.next({key, value: data});
     }
 
     clear(key) {
         appSettings.remove(key);
-        // the local application doesn't seem to catch changes to localStorage...
         this.onSubject.next({key, value: null});
     }
 
     private start(): void {
-        window.addEventListener("storage", this.storageEventListener.bind(this));
+      //  window.addEventListener("storage", this.storageEventListener.bind(this));
     }
 
     private storageEventListener(event: StorageEvent) {
@@ -70,7 +66,7 @@ export class StorageService implements OnDestroy {
     }
 
     private stop(): void {
-        window.removeEventListener("storage", this.storageEventListener.bind(this));
+        // window.removeEventListener("storage", this.storageEventListener.bind(this));
         this.onSubject.complete();
     }
 }

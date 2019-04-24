@@ -14,7 +14,7 @@
                                keyboardType="phone"
                                autocorrect="true"
                                autocapitalizationType="none"
-                               [(ngModel)]="user.phone"
+                               [(ngModel)]="loginWithconfirm.phone"
                                returnKeyType="next"
                                (returnPress)="focusPassword()"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
@@ -26,10 +26,10 @@
                                class="input"
                                [isEnabled]="!processing"
                                hint="Код"
-                               [(ngModel)]="user.code"
+                               [(ngModel)]="confirmPhoneModel.code"
                                returnKeyType="done"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
-                </StackLayout>-->
+                </StackLayout>
 
                 <ActivityIndicator rowSpan="3" [busy]="processing"></ActivityIndicator>
             </GridLayout>

@@ -6,6 +6,7 @@ import { filter } from "rxjs/operators";
 import * as app from "tns-core-modules/application";
 const firebase = require("nativescript-plugin-firebase");
 import * as appSettings from "tns-core-modules/application-settings";
+import { TokenService } from "~/app/rest/token.service";
 
 @Component({
     moduleId: module.id,
@@ -16,7 +17,8 @@ export class AppComponent implements OnInit {
     private _activatedUrl: string;
     private _sideDrawerTransition: DrawerTransitionBase;
 
-    constructor(private router: Router, private routerExtensions: RouterExtensions) {
+    constructor(private router: Router,
+                private routerExtensions: RouterExtensions) {
         // Use the component constructor to inject services.
     }
 
@@ -25,8 +27,8 @@ export class AppComponent implements OnInit {
         this._sideDrawerTransition = new SlideInOnTopTransition();
 
         this.router.events
-        .pipe(filter((event: any) => event instanceof NavigationEnd))
-        .subscribe((event: NavigationEnd) => this._activatedUrl = event.urlAfterRedirects);
+            .pipe(filter((event: any) => event instanceof NavigationEnd))
+            .subscribe((event: NavigationEnd) => this._activatedUrl = event.urlAfterRedirects);
 
         firebase.init({
             // Optionally pass in properties for database, authentication and cloud messaging,

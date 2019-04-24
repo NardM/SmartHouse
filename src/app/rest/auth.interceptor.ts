@@ -2,6 +2,7 @@ import { StorageService } from "./storage.service";
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpResponse, HttpErrorResponse } from "@angular/common/http";
 import { Observer, Observable } from "rxjs";
 import { Injector, Injectable } from "@angular/core";
+
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 

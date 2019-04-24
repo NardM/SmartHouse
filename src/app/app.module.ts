@@ -7,9 +7,18 @@ import { AppComponent } from "./app.component";
 import { NativeScriptFormsModule } from "nativescript-angular";
 import { NativeScriptHttpClientModule } from "nativescript-angular/http-client";
 import { LoginComponent } from "~/app/theme/login/login.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from "@angular/common/http";
 import { LoginService } from "~/app/service/login.service";
-import { TokenService } from "~/app/service/token.service";
+import { StorageService } from "~/app/rest/storage.service";
+import { TokenService } from "~/app/rest/token.service";
+import { AuthInterceptor } from "~/app/rest/auth.interceptor";
+import { AccountService } from "~/app/genservices/account.service";
+
+const PROVIDERS = [
+    StorageService,
+    TokenService,
+]
+
 
 @NgModule({
     bootstrap: [
@@ -32,7 +41,12 @@ import { TokenService } from "~/app/service/token.service";
     ],
     providers: [
         LoginService,
-        TokenService
+        PROVIDERS,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true
+        }
     ]
 })
 export class AppModule { }

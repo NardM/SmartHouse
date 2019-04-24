@@ -2,13 +2,17 @@
 import { Injectable, Injector } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
-import { environment } from "src/environments/environment";
 import { DeviceDataModel, DeviceModel } from "./models";
 import { Observable, of, from, throwError } from "rxjs";
 import { map, take, flatMap, catchError } from "rxjs/operators";
 import { StorageService } from "./storage.service";
 import { Answer } from "src/app/rest/model";
-
+// import { environment } from "~/environments/environment";
+export const environment = {
+    production: false,
+    apiUrl: "http://example.com/api/",
+    host_url: "http://ukapi.smartapi.ru"
+};
 @Injectable()
 export class TokenService {
 
@@ -36,7 +40,7 @@ export class TokenService {
     }
 
     initDevice() {
-        if (this.store.getItem("device_token") == null && localStorage.getItem("access_token") == null) {
+        if (this.store.getItem("device_token") === null) {
             this.initDeviceToken().subscribe((answer) => {
                 if (answer.success) {
                     const a = answer.data;

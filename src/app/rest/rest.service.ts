@@ -4,14 +4,21 @@ import { Response } from "@angular/http";
 import { Router } from "@angular/router";
 import { Inject, Injector } from "@angular/core";
 import { Observable, of, from, throwError } from "rxjs";
-import { map, take, flatMap, catchError } from "rxjs/operators";
-import { environment } from "src/environments/environment";
-import { TokenService } from "src/app/rest/token.service";
-import { StorageService } from "src/app/rest/storage.service";
-import { Answer, ErrorCode, RestList, Pager } from "src/app/rest/model";
-//import { invalid } from "moment";
+import { map, take, flatMap, catchError, mergeMap } from "rxjs/operators";
+import { TokenService } from "~/app/rest/token.service";
+import { StorageService } from "~/app/rest/storage.service";
+import { Answer, ErrorCode, Pager, RestList } from "~/app/rest/model";
+// import { environment } from "~/environments/environment";
+// import { invalid } from "moment";
+
+export const environment = {
+    production: false,
+    apiUrl: "http://example.com/api/",
+    host_url: "http://ukapi.smartapi.ru"
+};
 
 export class BaseService {
+    // tslint:disable-next-line:variable-name
     protected host_url: string;
     protected _tokenService: TokenService;
     protected store: StorageService;
@@ -134,7 +141,7 @@ export class BaseService {
     protected post<T>(url: string, param?: any): Observable<T> {
         const requestModel = this.toRequestmodel(param);
 
-        return this.response(() => this.http.post<Answer<T>>(url, requestModel));
+        return this.response<T>(() => this.http.post<Answer<T>>(url, requestModel));
     }
 
     protected put<T>(url: string, param?: any): Observable<T> {

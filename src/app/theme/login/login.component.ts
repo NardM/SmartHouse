@@ -1,9 +1,14 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Component, ElementRef, Injector, OnInit, ViewChild } from "@angular/core";
 import { Page } from "tns-core-modules/ui/page";
 import { RouterExtensions } from "nativescript-angular";
 import { User } from "~/app/model/user.model";
 import { UserService } from "~/app/service/user.service";
 import { LoginService } from "~/app/service/login.service";
+import { AccountService } from "~/app/genservices/account.service";
+import { LoginWithconfirm } from "~/app/genmodel/login_withconfirm";
+import { ConfirmPhoneModel } from "~/app/genmodel/confirm_phone.model";
+import { LoginResult } from "~/app/genmodel/login_result";
+import { TokenService } from "~/app/rest/token.service";
 
 @Component({
     selector: "hs-login",
@@ -11,21 +16,33 @@ import { LoginService } from "~/app/service/login.service";
     templateUrl: "./login.component.html",
     styleUrls: ["./login.component.scss"]
 })
-export class LoginComponent  {
+export class LoginComponent {
 
     isLoggingIn = true;
     user: User;
     processing = false;
     @ViewChild("password") password: ElementRef;
     @ViewChild("confirmPassword") confirmPassword: ElementRef;
+    loginWithconfirm: LoginWithconfirm;
+    confirmPhoneModel: ConfirmPhoneModel;
+    loginService: AccountService;
 
     constructor(private page: Page,
-                private loginService: LoginService,
+                private injector: Injector,
+                private tokenService: TokenService,
+
+                // private loginService: AccountService,
                 private routerExtensions: RouterExtensions) {
+        this.loginService = new AccountService(injector);
         this.page.actionBarHidden = true;
         this.user = new User();
-        this.user.phone = "+7";
-        this.user.code = "";
+        this.loginWithconfirm = {
+            phone: "+7"
+        };
+        this.confirmPhoneModel = {
+            code: "",
+            phone: null
+        };
     }
 
     toggleForm() {
@@ -33,70 +50,45 @@ export class LoginComponent  {
     }
 
     checkPhone(): boolean {
-        if (!this.user.phone) {
+        if (!this.loginWithconfirm.phone) {
             return false;
         }
         const regexPhone = /^((\+7)+([0-9]){10})$/;
-        return !!this.user.phone.match(regexPhone);
+
+        return !!this.loginWithconfirm.phone.match(regexPhone);
     }
 
     submit() {
         if (!this.checkPhone()) {
-            this.alert("Пожалуйста, введите корректный номер телефона");
             return;
         }
         this.processing = true;
 
-        this.loginService.login(this.user.phone)
-            .subscribe((result) => {
+        this.loginService.loginWithConfirm(this.loginWithconfirm)
+            .subscribe((result: LoginResult) => {
                 this.isLoggingIn = false;
                 this.processing = false;
-                this.user.code = result.data.code;
+                this.confirmPhoneModel.code = result.code;
             });
 
     }
 
     login() {
-        this.loginService.confirm(this.user.phone, this.user.code)
+        this.confirmPhoneModel.phone = this.loginWithconfirm.phone;
+        this.loginService.confirm(this.confirmPhoneModel)
             .subscribe(() => {
-                this.routerExtensions.navigate(["/home"], { clearHistory: true });
+                this.routerExtensions.navigate(["/home"], {clearHistory: true});
             });
-    }
-
-    register() {
-
-       /* this.userService.register(this.user)
-            .then(() => {
-                this.processing = false;
-                this.alert("Your account was successfully created.");
-                this.isLoggingIn = true;
-            })
-            .catch(() => {
-                this.processing = false;
-                this.alert("Unfortunately we were unable to create your account.");
-            });*/
-    }
-
-    forgotPassword() {
-
     }
 
     focusPassword() {
         this.password.nativeElement.focus();
     }
+
     focusConfirmPassword() {
         if (!this.isLoggingIn) {
             this.confirmPassword.nativeElement.focus();
         }
     }
-
-    alert(message: string) {
-        return alert({
-            title: "APP NAME",
-            okButtonText: "OK",
-            message: message
-        });
-    }
-
 
 }
