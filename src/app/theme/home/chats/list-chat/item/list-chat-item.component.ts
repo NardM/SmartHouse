@@ -16,7 +16,8 @@ export class ListChatItemComponent implements OnInit, OnDestroy {
 
     @Input() data: any;
 
-    constructor(
+    constructor(private page: Page,
+                private routerExtensions: RouterExtensions
     ) {
         this.data = {
             url: 'https://www.technouz.com/wp-content/uploads/2017/11/angular-logo.png',
@@ -29,7 +30,16 @@ export class ListChatItemComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
     }
 
-
+    onNavigate(): void {
+        this.routerExtensions.navigate(["home", "chat"], {
+            animated: true,
+            transition: {
+                name: "slideLeft",
+                duration: 200,
+                curve: "easeIn"
+            }
+        });
+    }
 
     ngOnInit(): void {
 

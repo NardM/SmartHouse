@@ -23,6 +23,11 @@ const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
+        path: "account",
+        loadChildren: "~/app/theme/left-bar/account/account.module#AccountModule",
+        canActivate: [AuthGuard]
+    },
+    {
         path: "history-payment",
         loadChildren: "~/app/theme/left-bar/history-payment/history-payment.module#HistoryPaymentModule",
         canActivate: [AuthGuard]
@@ -34,7 +39,7 @@ const routes: Routes = [
     },
     {
         path: "about-uk",
-        loadChildren: "~/app/theme/left-bar/about-UK/about-UK.module#AboutUKModule",
+        loadChildren: "~/app/theme/left-bar/about-UK/about-UK.module#AccountModule",
         canActivate: [AuthGuard]
     },
     {

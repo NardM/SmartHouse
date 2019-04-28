@@ -1,22 +1,16 @@
 <GridLayout rows="auto,auto,*,auto" columns="auto" class="chats">
-
-
     <GridLayout  row="1" width="100%"
                 backgroundColor="white">
             <hs-list-chats *ngIf="selectedTabview == 0"></hs-list-chats>
             <hs-list-contacts *ngIf="selectedTabview == 1"></hs-list-contacts>
     </GridLayout>
-
     <GridLayout class="navBottom" height="48" width="100%" row="3" rows="auto"
             columns="auto,auto,auto,auto">
-
-
         <SegmentedBar [items]="myItems"
                       [selectedIndex]="selectedTabview"
                       width="100%"
                       height="100%"
                       (selectedIndexChange)="onSelectedIndexChange($event)"
-                      class="m-5"></SegmentedBar>
-
+                      class="m-5 segmented-bar-custom"></SegmentedBar>
     </GridLayout>
 </GridLayout>

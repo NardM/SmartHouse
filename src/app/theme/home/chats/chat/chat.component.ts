@@ -4,6 +4,7 @@ import * as app from "tns-core-modules/application";
 import { ListView } from "tns-core-modules/ui/list-view";
 import { TextField } from "tns-core-modules/ui/text-field";
 import { Observable } from "rxjs";
+import { RouterExtensions } from "nativescript-angular";
 class Country {
     constructor(public name: string) { }
 }
@@ -23,10 +24,12 @@ export class ChatComponent implements OnInit, AfterViewInit {
 
     list: ListView;
     textfield: TextField;
+    message: any;
 
     chats$: Observable<any>;
 
-    constructor() { }
+    constructor(private routerExtensions: RouterExtensions) {
+    }
 
     ngOnInit() {
     }
@@ -46,6 +49,10 @@ export class ChatComponent implements OnInit, AfterViewInit {
         this.textfield.text = "";
     }
 
+    goBack(): void {
+        this.routerExtensions.back();
+    }
+
     filter(sender) {
         if (sender === '') {
             return "me";
@@ -61,6 +68,7 @@ export class ChatComponent implements OnInit, AfterViewInit {
             return "left";
         }
     }
+
     showImage(sender) {
         if (sender === '') {
             return "collapsed";

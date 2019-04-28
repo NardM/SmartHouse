@@ -4,6 +4,8 @@ import { RouterExtensions } from "nativescript-angular";
 import { Page } from "tns-core-modules/ui/page";
 import { Subscription } from "rxjs";
 import { ConstructionSite } from "~/app/service/chat/construction-site.model";
+import { NewsItem } from "~/app/model/news.model";
+import { CurrentNewService } from "~/app/theme/home/news/shared/current-new.service";
 
 
 @Component({
@@ -14,7 +16,8 @@ import { ConstructionSite } from "~/app/service/chat/construction-site.model";
 })
 export class ListChatsComponent implements OnInit, OnDestroy {
 
-    constructor() {
+    constructor(private page: Page,
+                private routerExtensions: RouterExtensions) {
     }
 
 
@@ -22,8 +25,7 @@ export class ListChatsComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
     }
 
-    onNavigatedTo(): void {
-    }
+
 
     ngOnInit(): void {
 

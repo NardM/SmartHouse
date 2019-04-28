@@ -1,0 +1,16 @@
+<ActionBar class="action-bar">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://navigation/menu"
+                android:visibility="collapsed"
+                (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Аккаунт"></Label>
+</ActionBar>
+
+<GridLayout class="page page-content" *ngIf="data">
+    <Label class="" [text]="data.first_name"></Label>
+    <Label class="" [text]="data.last_name"></Label>
+    <Label class="" [text]="data.email"></Label>
+    <Label class="" [text]="data.phone"></Label>
+</GridLayout>
