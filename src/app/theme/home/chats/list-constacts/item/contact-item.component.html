@@ -1,4 +1,6 @@
-<StackLayout orientation="horizontal" class="item">
+<StackLayout orientation="horizontal"
+             class="contact-item"
+             *ngIf="data" >
     <Image  class="authorimg"
             stretch="aspectFill"
             height="56"
@@ -6,9 +8,9 @@
             verticalAlignment="top"
             [src]="data.url"
             col="1"></Image>
-    <StackLayout orientation="vertical" width="100%">
+    <StackLayout orientation="vertical" width="100%" style="margin-top: 8">
         <Label [text]='data.name' class="author"  ></Label>
-        <Label [text]='data.message' class="message" textWrap="true" ></Label>
-        <Label [text]='data.date' class="date"  ></Label>
+        <Label [text]='data.address' class="message"></Label>
     </StackLayout>
 </StackLayout>
+<StackLayout class="hr-light m-10"></StackLayout>

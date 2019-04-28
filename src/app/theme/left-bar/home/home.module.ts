@@ -22,6 +22,8 @@ import { LabelMaxLinesDirective } from "~/app/directive/label-max-lines.directiv
 import { CurrentNewService } from "~/app/theme/home/news/shared/current-new.service";
 import { DetailNewComponent } from "~/app/theme/home/news/detail-new/detail-new.component";
 import { ChatItemComponent } from "~/app/theme/home/chats/chat/item/chat-item.component";
+import { ContactItemComponent } from "~/app/theme/home/chats/list-constacts/item/contact-item.component";
+import { ListChatItemComponent } from "~/app/theme/home/chats/list-chat/item/list-chat-item.component";
 
 @NgModule({
     imports: [
@@ -44,7 +46,9 @@ import { ChatItemComponent } from "~/app/theme/home/chats/chat/item/chat-item.co
         ItemNewComponent,
         LabelMaxLinesDirective,
         DetailNewComponent,
-        ChatItemComponent
+        ChatItemComponent,
+        ContactItemComponent,
+        ListChatItemComponent
     ],
     providers: [
         ServiceService,

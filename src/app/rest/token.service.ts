@@ -66,6 +66,7 @@ export class TokenService {
     refreshAccountToken(): Observable<Answer<DeviceModel>> {
         return this.refreshAccountMethod(this.getDeviceData());
     }
+
     logout(): Observable<boolean> {
         const url = `${this.host_url}/api/v1/account/logout`;
 

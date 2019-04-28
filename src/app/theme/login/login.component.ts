@@ -43,6 +43,7 @@ export class LoginComponent {
             code: "",
             phone: null
         };
+        this.tokenService.initDevice();
     }
 
     toggleForm() {

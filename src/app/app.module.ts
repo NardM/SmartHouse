@@ -13,12 +13,17 @@ import { StorageService } from "~/app/rest/storage.service";
 import { TokenService } from "~/app/rest/token.service";
 import { AuthInterceptor } from "~/app/rest/auth.interceptor";
 import { AccountService } from "~/app/genservices/account.service";
+import { AuthGuard } from "~/app/service/guard/auth-guard.service";
+import { AuthGuardLogin } from "~/app/service/guard/login-guard.service";
+import { AuthService } from "~/app/service/guard/auth.service";
 
 const PROVIDERS = [
     StorageService,
     TokenService,
-]
-
+    AuthGuard,
+    AuthGuardLogin,
+    AuthService
+];
 
 @NgModule({
     bootstrap: [
