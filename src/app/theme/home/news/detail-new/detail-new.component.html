@@ -15,15 +15,31 @@
 </ActionBar>
 <StackLayout orientation="vertical">
     <StackLayout  height="90%" >
-        <hs-item-new [item]="item"></hs-item-new>
+        <hs-item-new [item]="itemNews"></hs-item-new>
+
         <StackLayout class="hr-light m-10"></StackLayout>
-        <hs-chat-item *ngIf="show"></hs-chat-item>
+        <ListView
+            #chatBox
+            separatorColor="transparent"
+            [items]="messages"
+            (loaded)="scrollChatToBottom()"
+            row="1">
+            <ng-template  let-item="item" >
+                <StackLayout style="margin: 10">
+                    <hs-chat-item [data]="item"></hs-chat-item>
+                </StackLayout>
+            </ng-template>
+        </ListView>
     </StackLayout>
 
     <StackLayout #chatbox  verticalAlignment="bottom" height="10%">
         <GridLayout columns="*,auto" style="padding: 10%"  >
-            <TextField #textfield class="chatTextField" row="0" col="0" ></TextField>
-            <Button #btn class="chatBtn" row="0" col="1" text="Отправить" ></Button>
+            <TextField #newMessage col="0" class="chatTextField" row="0" ></TextField>
+            <Label
+                    (tap)="sendMessage()"
+                    col="1"
+                    text="Отправить"
+                    class="send-button"></Label>
         </GridLayout>
     </StackLayout>
 </StackLayout>

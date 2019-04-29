@@ -25,7 +25,7 @@ export class NewsComponent implements OnInit {
             title: "18.04.19 с 10:00 до 13:00",
             text: "Будет плановое отключение электричества из-Будет плановое отключение электричества из-заБудет плановое отключение электричества из-заза",
             seenCount: 0,
-            date: 'Вчера в 15:00',
+            date: '10.04.19',
             url: "",
             author: "Ваш УК",
             maxLines: 2
@@ -35,7 +35,7 @@ export class NewsComponent implements OnInit {
             title: "",
             text: "В подъезде была найдена кошка. Хозяевам обращаться в 28 квартиру",
             seenCount: 1,
-            date: 'Вчера в 15:04',
+            date: '10.04.19',
             url: "",
             author: "Квартира 28",
             maxLines: 2
@@ -48,9 +48,61 @@ export class NewsComponent implements OnInit {
             date: '',
             url: "",
             author: "Ваш УК",
+            maxLines: 3
+        });
+        const dataNew4 = new NewsItem({
+            id: 4,
+            title: "Собрание жильцов в субботу",
+            text: "Дорогие жители нашего дома, на собрании мы выберем староста 2 подъезда",
+            seenCount: 0,
+            date: '10.04.19',
+            url: "",
+            author: "Ваш УК",
             maxLines: 2
         });
-        this.data = [dataNew, dataNew2, dataNew3];
+        const dataNew5 = new NewsItem({
+            id: 4,
+            title: "Информация от МУП Водоконал",
+            text: "Телефонограмма МУП Водоканал: в связи с аварийными работами на водопроводе d 50 мм по адресу -Декабристов,127, 04.03.2019, с 9:00 часов и до окончания работ без ХВС ж.д Декабристов, 127\n" +
+                "\n",
+            seenCount: 0,
+            date: '10.04.19',
+            url: "",
+            author: "Ваш УК",
+            maxLines: 3
+        });
+        const dataNew6 = new NewsItem({
+            id: 4,
+            title: "Дорогие жильцы нашего дома",
+            text: "В подъезде мусорим только лепестками роз",
+            seenCount: 0,
+            date: '07.04.19',
+            url: "",
+            author: "Ваш УК",
+            maxLines: 2
+        });
+
+        const dataNew7 = new NewsItem({
+            id: 4,
+            title: "Информация от МУП Водоконал",
+            text: "Телефонограмма МУП Водоканал: В связи с производством работ по подключению водопровода Д-100 объекта \"Придорожный автомобильный сервис по ул.Кулахметова\" к водопроводу Д-500мм 05.03.2019 с 09:00 часов и до 03.00 06.03.2019 будет прекращена подача воды в ж.д.: Серова, 3, 5,11,13,15,17,19; Блюхера, 81,82.84.84.85.",
+            seenCount: 0,
+            date: '01.03.19',
+            url: "",
+            author: "Ваш УК",
+            maxLines: 3
+        });
+        const dataNew8 = new NewsItem({
+            id: 5,
+            title: "Добро пожаловать в наш сервис",
+            text: "Теперь все услуги ЖКХ вам доступны онлайн",
+            seenCount: 0,
+            date: '',
+            url: "",
+            author: "Ваш УК",
+            maxLines: 2
+        });
+        this.data = [dataNew, dataNew2, dataNew3,dataNew4,dataNew5, dataNew6, dataNew7, dataNew7];
     }
 
     ngOnInit(): void {

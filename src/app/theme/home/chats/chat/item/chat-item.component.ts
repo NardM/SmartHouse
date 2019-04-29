@@ -1,4 +1,4 @@
-import { Component, NgZone, OnDestroy, OnInit } from "@angular/core";
+import { Component, Input, NgZone, OnDestroy, OnInit } from "@angular/core";
 import { ObservableArray } from "tns-core-modules/data/observable-array";
 import { Subscription } from "rxjs";
 import { RouterExtensions } from "nativescript-angular";
@@ -14,7 +14,7 @@ import { Page } from "tns-core-modules/ui/page";
 })
 export class ChatItemComponent implements OnInit, OnDestroy {
 
-    data: any;
+    @Input() data: any;
 
     constructor() {
         this.data = {
