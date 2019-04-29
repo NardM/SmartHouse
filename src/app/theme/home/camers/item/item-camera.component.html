@@ -1,9 +1,25 @@
-<ActionBar title="Video" class="action-bar">
+<ActionBar class="action-bar" >
+    <!--
+    Use the NavigationButton as a side-drawer button in Android
+    because ActionItems are shown on the right side of the ActionBar
+    -->
+    <NavigationButton  android.systemIcon="ic_menu_back" (tap)="goBack($event)"></NavigationButton>
+
+    <!--
+    Use the ActionItem for IOS with position set to left. Using the
+    NavigationButton as a side-drawer button in iOS is not possible,
+    because its function is to always navigate back in the application.
+    -->
+
+    <Label class="action-bar-title" text="Видеонаблюдение"></Label>
 </ActionBar>
 
-<StackLayout>
-    <VideoPlayer id="nativeVideoPlayer" controls="true" autoplay="true" height="300" src="https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"></VideoPlayer>
-    <Button class="btn btn-primary" text="Play" (tap)="play()"></Button>
-    <Button class="btn btn-primary" text="Pause" (tap)="pause()"></Button>
-    <Button class="btn btn-primary" text="Go To 30 seconds" (tap)="seekToTime()"></Button>
+<StackLayout style="horizontal-align: center">
+    <VideoPlayer id="nativeVideoPlayer" controls="false"
+                 fill="true"
+                 height="300"
+                 loop="true"
+                 autoplay="true"
+                 [src]="src"> </VideoPlayer>
+    <ActivityIndicator *ngIf="showLoader"  color="blue" busy="true"  width="100" height="100" class="activity-indicator"></ActivityIndicator>
 </StackLayout>

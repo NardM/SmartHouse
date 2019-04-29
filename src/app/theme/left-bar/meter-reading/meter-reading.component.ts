@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { IPropertyAnnotation } from "~/app/theme/home/service/shared/service.model";
+import * as dialogs from "tns-core-modules/ui/dialogs";
+import { RouterExtensions } from "nativescript-angular";
 
 @Component({
     selector: "Browse",
@@ -14,7 +16,7 @@ export class MeterReadingComponent implements OnInit {
     metadata: any;
     store: any;
 
-    constructor() {
+    constructor(private routerExtensions: RouterExtensions) {
         // Use the component constructor to inject providers.
 
         this.metadata = {
@@ -56,9 +58,16 @@ export class MeterReadingComponent implements OnInit {
     }
 
     onSubmit() {
-        alert({
+        dialogs.alert({
+            title: "Показание счетчиков",
+            message: "Успешно отправлено",
+            okButtonText: "Закрыть"
+        }).then(() => {
+            this.routerExtensions.navigate(["home"]);
+        });
+      /*  alert({
             title: "Внимание",
             message: "Сдача показаний доступна с 12 по 15 число"
-        });
+        });*/
     }
 }
