@@ -1,6 +1,12 @@
 Button{
-  background: #3076D4;
+  background-color: #3076D4;
   border-radius: 8;
   box-shadow: 0 4 4 rgba(0, 0, 0, 0.25), 0 4 4 rgba(0, 0, 0, 0.25);
+  border-color: rgba(0, 0, 0, 0.25);
+  border-width: 1;
   color: white;
+  font-family: PT Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 17px;
 }
