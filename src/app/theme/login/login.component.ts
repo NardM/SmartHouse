@@ -9,6 +9,8 @@ import { LoginWithconfirm } from "~/app/genmodel/login_withconfirm";
 import { ConfirmPhoneModel } from "~/app/genmodel/confirm_phone.model";
 import { LoginResult } from "~/app/genmodel/login_result";
 import { TokenService } from "~/app/rest/token.service";
+import { StorageService } from "~/app/rest/storage.service";
+import { LoginAccessToken } from "~/app/genmodel/login_access_token";
 
 @Component({
     selector: "hs-login",
@@ -30,7 +32,7 @@ export class LoginComponent {
     constructor(private page: Page,
                 private injector: Injector,
                 private tokenService: TokenService,
-
+                private store: StorageService,
                 // private loginService: AccountService,
                 private routerExtensions: RouterExtensions) {
         this.loginService = new AccountService(injector);
@@ -77,7 +79,8 @@ export class LoginComponent {
     login() {
         this.confirmPhoneModel.phone = this.loginWithconfirm.phone;
         this.loginService.confirm(this.confirmPhoneModel)
-            .subscribe(() => {
+            .subscribe((data: LoginAccessToken) => {
+                this.store.setItem('login_token', data.access_token);
                 this.routerExtensions.navigate(["/home"], {clearHistory: true});
             });
     }

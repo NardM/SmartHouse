@@ -35,7 +35,7 @@ export class TokenService {
             app_version: "1.0.0",
             app_type: 1,
             device_type: 1,
-            app_build: 0
+            app_build: 1
         } as DeviceDataModel;
     }
 

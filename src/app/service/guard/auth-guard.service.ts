@@ -35,7 +35,6 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     }
 
     checkLogin(url: string): boolean {
-        return true;
 
         if (this.store.getItem("login_token") !== null &&
             this.store.getItem("login_token") !== "null" &&
