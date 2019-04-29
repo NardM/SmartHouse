@@ -8,9 +8,22 @@
     <Label class="action-bar-title" text="Аккаунт"></Label>
 </ActionBar>
 
-<GridLayout class="page page-content" *ngIf="data">
-    <Label class="" [text]="data.first_name"></Label>
-    <Label class="" [text]="data.last_name"></Label>
-    <Label class="" [text]="data.email"></Label>
-    <Label class="" [text]="data.phone"></Label>
-</GridLayout>
+
+<StackLayout class="page page-content" orientation="vertical" style="margin: 15">
+    <StackLayout orientation="horizontal" >
+        <Label  text="Фамилия: " style="font-size: 16; color: black;"></Label>
+        <Label style="font-size: 16;"  [text]="data.first_name"></Label>
+    </StackLayout>
+    <StackLayout orientation="horizontal" >
+        <Label  text="Имя: " style="font-size: 16; color: black;"></Label>
+        <Label style="font-size: 16;"  [text]="data.last_name"></Label>
+    </StackLayout>
+    <StackLayout orientation="horizontal" >
+        <Label  text="E-mail: " style="font-size: 16; color: black;"></Label>
+        <Label style="font-size: 16;"  [text]="data.email"></Label>
+    </StackLayout>
+    <StackLayout orientation="horizontal" >
+        <Label  text="Телефон: " style="font-size: 16; color: black;"></Label>
+        <Label style="font-size: 16;"  [text]="data.phone"></Label>
+    </StackLayout>
+</StackLayout>

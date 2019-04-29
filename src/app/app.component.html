@@ -7,7 +7,7 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
     <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
         <StackLayout row="0" class="sidedrawer-header" (tap)="onNavItemTap('/account')">
             <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
-            <Label class="sidedrawer-header-brand" text="Мутигуллин Ленар"></Label>
+            <Label class="sidedrawer-header-brand" text="Тестовый Тест"></Label>
             <Label class="footnote" text="Квартира 5"></Label>
         </StackLayout>
     
@@ -37,13 +37,13 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                     <Label col="1" text="История оплаты счетов" class="p-r-10"></Label>
                 </GridLayout>
 
-                <GridLayout columns="auto, *"
+              <!--  <GridLayout columns="auto, *"
                             class="sidedrawer-list-item"
                             [class.selected]="isComponentSelected('/feedback')"
                             (tap)="onNavItemTap('/feedback')">
                     <Label col="0" text="&#xf003;" class="fa"></Label>
                     <Label col="1" text="Связаться с УК" class="p-r-10"></Label>
-                </GridLayout>
+                </GridLayout>-->
 
 
                 <GridLayout columns="auto, *"
@@ -66,13 +66,13 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
 
                 <StackLayout class="hr-light"></StackLayout>
 
-                <GridLayout columns="auto, *"
+             <!--   <GridLayout columns="auto, *"
                             class="sidedrawer-list-item"
                             [class.selected]="isComponentSelected('/login')"
                             (tap)="onNavItemTap('/login')">
                     <Label col="0" text="&#xf013;" class="fa"></Label>
                     <Label col="1" text="Настройки" class="p-r-10"></Label>
-                </GridLayout>
+                </GridLayout>-->
                 <GridLayout columns="auto, *"
                             class="sidedrawer-list-item"
                             [class.selected]="isComponentSelected('/settings')"

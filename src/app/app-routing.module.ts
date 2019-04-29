@@ -39,7 +39,7 @@ const routes: Routes = [
     },
     {
         path: "about-uk",
-        loadChildren: "~/app/theme/left-bar/about-UK/about-UK.module#AccountModule",
+        loadChildren: "~/app/theme/left-bar/about-UK/about-UK.module#AboutUKModule",
         canActivate: [AuthGuard]
     },
     {

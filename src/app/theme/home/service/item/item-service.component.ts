@@ -39,13 +39,16 @@ export class ItemServiceComponent implements OnInit {
     }
 
     onSubmit() {
+
+
+
         if (this.currentItem.type === ServiceType.service) {
             dialogs.alert({
                 title: "Вызов специалиста",
                 message: "Заявка успешно отправлена",
                 okButtonText: "Закрыть"
             }).then(() => {
-                this.routerExtensions.navigate(['home']);
+                this.routerExtensions.navigate(["home"]);
             });
         } else {
             dialogs.alert({
@@ -53,7 +56,7 @@ export class ItemServiceComponent implements OnInit {
                 message: "Успешно отправлено",
                 okButtonText: "Закрыть"
             }).then(() => {
-                this.routerExtensions.navigate(['home']);
+                this.routerExtensions.navigate(["home"]);
             });
         }
     }

@@ -17,7 +17,7 @@
     <StackLayout  height="90%" >
         <hs-item-new [item]="item"></hs-item-new>
         <StackLayout class="hr-light m-10"></StackLayout>
-        <hs-chat-item></hs-chat-item>
+        <hs-chat-item *ngIf="show"></hs-chat-item>
     </StackLayout>
 
     <StackLayout #chatbox  verticalAlignment="bottom" height="10%">

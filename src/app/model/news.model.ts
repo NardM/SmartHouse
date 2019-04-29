@@ -6,6 +6,7 @@ export interface INewsItem {
     date: string;
     author: string;
     seenCount: number;
+    maxLines: number;
 }
 
 export class NewsItem implements INewsItem {
@@ -16,6 +17,7 @@ export class NewsItem implements INewsItem {
     date: string;
     author: string;
     seenCount: number;
+    maxLines: number;
 
     constructor(data: INewsItem) {
         this.id = data.id;
@@ -25,5 +27,6 @@ export class NewsItem implements INewsItem {
         this.seenCount = data.seenCount;
         this.date = data.date;
         this.author = data.author;
+        this.maxLines = data.maxLines ? data.maxLines : 2;
     }
 }

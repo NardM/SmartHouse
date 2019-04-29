@@ -9,13 +9,23 @@ export class AccountModel extends AccountBaseModel {
     first_name: string;
     last_name: string;
 
-    constructor(data: any) {
+    constructor(data?: any) {
         super();
-        this.id = data.id ? data.id : "Не заполнено";
+       /* this.id = data.id ? data.id : "Не заполнено";
         this.email = data.email ? data.email : "Не заполнено";
         this.phone = data.phone ? data.phone : "Не заполнено";
         this.username = data.username ? data.username : "Не заполнено";
         this.first_name = data.first_name ? data.first_name : "Не заполнено";
-        this.last_name = data.last_name ? data.last_name : "Не заполнено";
+        this.last_name = data.last_name ? data.last_name : "Не заполнено";*/
+    }
+
+    default() {
+        this.id = 1;
+        this.residents = [];
+        this.email = "test@gmail.com";
+        this.phone = "+7-999-9999-999";
+        this.username = "Тестовый";
+        this.first_name = "Тестовый";
+        this.last_name = "Тест";
     }
 }

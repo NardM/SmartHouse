@@ -14,10 +14,14 @@ import { RouterExtensions } from "nativescript-angular";
 export class DetailNewComponent implements OnInit {
 
     item: NewsItem;
+    show: boolean = false;
 
     constructor(private newsService: CurrentNewService,
                 private routerExtensions: RouterExtensions) {
         this.item = this.newsService.currentItem;
+        if (this.item.id === 2){
+            this.show = true;
+        }
     }
 
     ngOnInit(): void {

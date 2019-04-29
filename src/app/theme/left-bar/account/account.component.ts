@@ -16,13 +16,16 @@ export class AccountComponent implements OnInit {
 
     constructor(private injector: Injector) {
         this.accountService = new AccountService(injector);
+        this.data = new AccountModel();
+        this.data.default();
     }
 
     ngOnInit(): void {
-        this.accountService.getAccountInfo()
+
+      /*  this.accountService.getAccountInfo()
             .subscribe((account: any) => {
                 this.data = new AccountModel(account);
-            });
+            });*/
     }
 
     onDrawerButtonTap(): void {

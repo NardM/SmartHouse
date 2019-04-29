@@ -45,6 +45,7 @@ export class AppComponent implements OnInit {
 
     onExit(){
         appSettings.clear();
+        this.routerExtensions.navigate(['login'])
     }
 
     get sideDrawerTransition(): DrawerTransitionBase {

@@ -16,24 +16,20 @@ export class ChatItemComponent implements OnInit, OnDestroy {
 
     data: any;
 
-    constructor(
-    ) {
+    constructor() {
         this.data = {
             url: 'https://www.technouz.com/wp-content/uploads/2017/11/angular-logo.png',
             name: 'Анна Алексеева',
-            date: 'Сегодня 23:00',
-            message: 'На каком этаже?'
+            date: 'Сегодня 10:00',
+            message: 'Пятнистая-серая? Если да, то это моя'
         }
     }
 
     ngOnDestroy(): void {
     }
 
-
-
     ngOnInit(): void {
 
     }
-
 
 }

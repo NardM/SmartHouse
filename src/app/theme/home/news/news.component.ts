@@ -21,33 +21,36 @@ export class NewsComponent implements OnInit {
                 private routerExtensions: RouterExtensions) {
         this.data = [];
         const dataNew = new NewsItem({
-            id: 2,
+            id: 1,
             title: "18.04.19 с 10:00 до 13:00",
             text: "Будет плановое отключение электричества из-Будет плановое отключение электричества из-заБудет плановое отключение электричества из-заза",
-            seenCount: 1,
+            seenCount: 0,
             date: 'Вчера в 15:00',
             url: "",
-            author: "Ваш УК"
+            author: "Ваш УК",
+            maxLines: 2
         });
         const dataNew2 = new NewsItem({
             id: 2,
             title: "",
             text: "В подъезде была найдена кошка. Хозяевам обращаться в 28 квартиру",
-            seenCount: 0,
+            seenCount: 1,
             date: 'Вчера в 15:04',
             url: "",
-            author: "Квартира 28"
+            author: "Квартира 28",
+            maxLines: 2
         });
-        const data = new NewsItem({
-            id: 1,
-            title: "18.04.19 с 10:00 до 13:00",
-            text: "Будет плановое отключение электричества из-Будет плановое отключение электричества из-заБудет плановое отключение электричества из-заза",
+        const dataNew3 = new NewsItem({
+            id: 3,
+            title: "Отремонтирована детская площадка.",
+            text: "Дорогие жители! Рады сообщить, что отремонтирована детская площадка во дворе вашего дома. Теперь вашим детишкам будет комфортнее проводить время во дворе.",
             seenCount: 0,
-            date: '10.04.2019 в 20:00',
+            date: '',
             url: "",
-            author: "Ваш УК"
+            author: "Ваш УК",
+            maxLines: 2
         });
-        this.data = [dataNew,dataNew2, data, data, data, data, data, data];
+        this.data = [dataNew, dataNew2, dataNew3];
     }
 
     ngOnInit(): void {
