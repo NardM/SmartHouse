@@ -15,11 +15,10 @@
 </ActionBar>
 
 <StackLayout style="horizontal-align: center">
+    <ActivityIndicator *ngIf="showLoader"  color="blue" busy="true"  width="100" height="100" class="activity-indicator"></ActivityIndicator>
     <VideoPlayer id="nativeVideoPlayer" controls="false"
                  fill="true"
-                 height="300"
-                 loop="true"
+                 width="90%"
                  autoplay="true"
                  [src]="src"> </VideoPlayer>
-    <ActivityIndicator *ngIf="showLoader"  color="blue" busy="true"  width="100" height="100" class="activity-indicator"></ActivityIndicator>
 </StackLayout>

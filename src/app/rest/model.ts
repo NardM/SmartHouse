@@ -1,4 +1,3 @@
-
 export class RestList<T> {
     items: Array<T>;
     count: number;
