@@ -56,6 +56,9 @@ export class MeterReadingComponent implements OnInit {
     }
 
     onSubmit() {
-
+        alert({
+            title: "Внимание",
+            message: "Сдача показаний доступна с 12 по 15 число"
+        });
     }
 }

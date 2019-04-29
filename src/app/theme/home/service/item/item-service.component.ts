@@ -5,7 +5,8 @@ import * as imagepicker from "nativescript-imagepicker";
 import { MessageStore, ServiceStore } from "../shared/serviceStore";
 import { ServiceService } from "../shared/service.service";
 import { CurrentService } from "../shared/currentService";
-import { ServiceModel } from "~/app/theme/home/service/shared/service.model";
+import { ServiceModel, ServiceType } from "~/app/theme/home/service/shared/service.model";
+import * as dialogs from "tns-core-modules/ui/dialogs";
 
 @Component({
     selector: "hs-item-service",
@@ -38,6 +39,23 @@ export class ItemServiceComponent implements OnInit {
     }
 
     onSubmit() {
+        if (this.currentItem.type === ServiceType.service) {
+            dialogs.alert({
+                title: "Вызов специалиста",
+                message: "Заявка успешно отправлена",
+                okButtonText: "Закрыть"
+            }).then(() => {
+                this.routerExtensions.navigate(['home']);
+            });
+        } else {
+            dialogs.alert({
+                title: "Предложить запись",
+                message: "Успешно отправлено",
+                okButtonText: "Закрыть"
+            }).then(() => {
+                this.routerExtensions.navigate(['home']);
+            });
+        }
     }
 
     goBack(): void {
