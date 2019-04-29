@@ -39,9 +39,6 @@ export class ItemServiceComponent implements OnInit {
     }
 
     onSubmit() {
-
-
-
         if (this.currentItem.type === ServiceType.service) {
             dialogs.alert({
                 title: "Вызов специалиста",

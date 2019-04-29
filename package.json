@@ -35,6 +35,7 @@
     "nativescript-ui-dataform": "^3.10.1",
     "nativescript-ui-listview": "^6.0.0",
     "nativescript-ui-sidedrawer": "~5.1.0",
+    "nativescript-videoplayer": "^4.2.1",
     "reflect-metadata": "~0.1.12",
     "rxjs": "~6.3.0",
     "tns-core-modules": "~5.2.0",

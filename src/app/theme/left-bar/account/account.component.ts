@@ -21,8 +21,8 @@ export class AccountComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
-      /*  this.accountService.getAccountInfo()
+/*
+        this.accountService.getAccountInfo()
             .subscribe((account: any) => {
                 this.data = new AccountModel(account);
             });*/

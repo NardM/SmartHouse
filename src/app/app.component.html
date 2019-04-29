@@ -25,16 +25,16 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                             class="sidedrawer-list-item"
                             [class.selected]="isComponentSelected('/meter-reading')"
                             (tap)="onNavItemTap('/meter-reading')">
-                    <Label col="0" text="&#xf1ea;" class="fa"></Label>
-                    <Label col="1" text="Отправить показание счетчиков" class="p-r-10"></Label>
+                    <Image src="res://meterreading" stretch="aspectFill" width="16" height="16"></Image>
+                    <Label col="1" text="  Отправить показание счетчиков" class="p-r-10"></Label>
                 </GridLayout>
 
                 <GridLayout columns="auto, *"
                             class="sidedrawer-list-item"
                             [class.selected]="isComponentSelected('/history-payment')"
                             (tap)="onNavItemTap('/history-payment')">
-                    <Label col="0" text="&#xf1ea;" class="fa"></Label>
-                    <Label col="1" text="История оплаты счетов" class="p-r-10"></Label>
+                    <Image src="res://historypayment" stretch="aspectFill" width="16" height="16"></Image>
+                    <Label col="1" text="  История оплаты счетов" class="p-r-10"></Label>
                 </GridLayout>
 
               <!--  <GridLayout columns="auto, *"
@@ -50,8 +50,8 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                             class="sidedrawer-list-item"
                             [class.selected]="isComponentSelected('/about-uk')"
                             (tap)="onNavItemTap('/about-uk')">
-                    <Label col="0" text="&#xf129;" class="fa"></Label>
-                    <Label col="1" text="Информация о УК" class="p-r-10"></Label>
+                    <Image src="res://aboutuk" stretch="aspectFill" width="16" height="16"></Image>
+                    <Label col="1" text="  Информация о УК" class="p-r-10"></Label>
                 </GridLayout>
 
 
@@ -59,8 +59,8 @@ http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawe
                             class="sidedrawer-list-item"
                             [class.selected]="isComponentSelected('/about-app')"
                             (tap)="onNavItemTap('/about-app')">
-                    <Label col="0" text="&#xf129;" class="fa"></Label>
-                    <Label col="1" text="Информация о приложении" class="p-r-10"></Label>
+                    <Image src="res://aboutapp" stretch="aspectFill" width="16" height="16"></Image>
+                    <Label col="1" text="  Информация о приложении" class="p-r-10"></Label>
                 </GridLayout>
 
 

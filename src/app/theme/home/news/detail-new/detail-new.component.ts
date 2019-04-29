@@ -4,6 +4,7 @@ import * as app from "tns-core-modules/application";
 import { NewsItem } from "~/app/model/news.model";
 import { CurrentNewService } from "~/app/theme/home/news/shared/current-new.service";
 import { RouterExtensions } from "nativescript-angular";
+import { TextField } from "tns-core-modules/ui/text-field";
 
 @Component({
     selector: "hs-item-detail-new",
@@ -15,6 +16,7 @@ export class DetailNewComponent implements OnInit {
 
     item: NewsItem;
     show: boolean = false;
+    textfield: TextField;
 
     constructor(private newsService: CurrentNewService,
                 private routerExtensions: RouterExtensions) {
@@ -25,6 +27,10 @@ export class DetailNewComponent implements OnInit {
     }
 
     ngOnInit(): void {
+    }
+
+    chat(message: string) {
+        this.textfield.text = "";
     }
 
     onDrawerButtonTap(): void {
