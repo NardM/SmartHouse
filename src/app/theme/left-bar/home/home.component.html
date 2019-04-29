@@ -11,18 +11,41 @@
            text="Мобильный дом"></Label>
 </ActionBar>
 
-<GridLayout class="page page-content">
-    <TabView>
-        <StackLayout *tabItem="{title: 'Новости'}">
+<GridLayout class="page page-content" >
+    <TabView tabBackgroundColor="#9ca9fb" tabTextColor="white">
+      <!--  <TabViewItem title="Новости" iconSource="res://news">
+            <StackLayout>
+                <hs-news></hs-news>
+            </StackLayout>
+        </TabViewItem>
+        <TabViewItem title="Камеры" iconSource="res://camers">
+            <StackLayout>
+                <hs-camers></hs-camers>
+            </StackLayout>
+        </TabViewItem>
+        <TabViewItem title="Сервисы" iconSource="res://service">
+            <StackLayout>
+                <hs-service></hs-service>
+            </StackLayout>
+        </TabViewItem>-->
+        <!--<TabViewItem title="Чат" iconSource="res://messages">
+            <StackLayout>
+                <hs-chats></hs-chats>
+            </StackLayout>
+        </TabViewItem>-->
+
+
+
+        <StackLayout *tabItem="{title: 'Новости',  iconSource: getIconSource('news')}">
             <hs-news></hs-news>
         </StackLayout>
-        <StackLayout *tabItem="{title: 'Камеры'}">
+        <StackLayout *tabItem="{title: 'Камеры',  iconSource: getIconSource('camers')}">
             <hs-camers></hs-camers>
         </StackLayout>
-        <StackLayout *tabItem="{title: 'Сервисы'}">
+        <StackLayout *tabItem="{title: 'Сервисы',  iconSource: getIconSource('service')}">
             <hs-service></hs-service>
         </StackLayout>
-       <!-- <StackLayout *tabItem="{title: 'Чат'}">
+        <!--<StackLayout *tabItem="{title: 'Чат',  iconSource: getIconSource('home')}">
             <hs-chats></hs-chats>
         </StackLayout>-->
     </TabView>
